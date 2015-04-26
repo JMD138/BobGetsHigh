@@ -49,10 +49,10 @@ public class BobGetsHigh
         frame.setSize((int)dimension.getWidth(), (int)dimension.getHeight());
         int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
-        frame.setBackground(Color.BLACK);
+        frame.getContentPane().setBackground(Color.BLACK);
         frame.setLocation(x, y);
         frame.setResizable(false);
-        frame.setUndecorated(true);
+        frame.setUndecorated(false);
         frame.setVisible(true);
 	}
 	
