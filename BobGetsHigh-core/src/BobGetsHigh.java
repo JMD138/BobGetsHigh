@@ -22,7 +22,7 @@ public class BobGetsHigh
 {
 	private Area currentArea;
     private ArrayList<String> inventory;
-    private int sobrietyLevel;
+    private int sobrietyLevel = 100;
     private JFrame frame;
     private JPanel content;
     
@@ -71,6 +71,19 @@ public class BobGetsHigh
 		String [] options = {"Yes", "No"};
 		String [] optionResults = {"You Lose", "You Win"};
 		Event event1 = new Event(0,"Want to do some drugs Bob?", options, optionResults);
+	}
+	
+	private void closeWindow(){
+		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+	}
+	
+	private void windowedMode(){
+		frame.setUndecorated(false);
+	}
+	
+	
+	public void updateSobrietyLevel(int num){
+		sobrietyLevel += num;
 	}
 
 }
