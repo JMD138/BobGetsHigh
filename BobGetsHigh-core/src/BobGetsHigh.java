@@ -52,7 +52,7 @@ public class BobGetsHigh
         frame.getContentPane().setBackground(Color.BLACK);
         frame.setLocation(x, y);
         frame.setResizable(false);
-        frame.setUndecorated(false);
+        frame.setUndecorated(true); 
         frame.setVisible(true);
 	}
 	
@@ -81,7 +81,7 @@ public class BobGetsHigh
 		frame.setUndecorated(false);
 	}
 	
-	
+
 	public void updateSobrietyLevel(int num){
 		sobrietyLevel += num;
 	}
