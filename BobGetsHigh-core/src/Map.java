@@ -8,8 +8,4 @@ public class Map
 	{
 		
 	}
-	protected Event addEvent()
-	{
-		return null;
-	}
 }

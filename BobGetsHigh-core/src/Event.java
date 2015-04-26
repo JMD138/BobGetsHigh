@@ -6,7 +6,8 @@ public class Event {
 	private String [] eventOptions;
 	private String [] eventOptionResults;
 	
-	public Event(int eId, String eText, String [] eOptions, String [] eOptionResults){
+	public Event(int eId, String eText, String [] eOptions, String [] eOptionResults)
+	{
 		int eventId = eId;
 		String eventText = eText;
 		String [] eventOptions = eOptions;
