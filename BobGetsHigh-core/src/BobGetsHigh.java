@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
 import javax.swing.*;
+import java.net.*;
 import javax.imageio.*;
 import java.io.File;
 import java.util.ArrayList;
@@ -40,9 +41,20 @@ public class BobGetsHigh
 	
 	public void makeFrame()
 	{
-		frame = new JFrame();
+		frame = new JFrame("Bob Gets High");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         content = (JPanel)frame.getContentPane();
+        JLabel emptyLabel = new JLabel("");
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
+        frame.setSize((int)dimension.getWidth(), (int)dimension.getHeight());
+        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+        frame.setBackground(Color.BLACK);
+        frame.setLocation(x, y);
+        frame.setResizable(false);
+        frame.setUndecorated(true);
+        frame.setVisible(true);
 	}
 	
 	public void generateMap()
