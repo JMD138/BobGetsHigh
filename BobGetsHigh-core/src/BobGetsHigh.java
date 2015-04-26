@@ -38,7 +38,9 @@ public class BobGetsHigh
 	}
 	public void generateEvents()
 	{
-		
+		String [] options = {"Yes", "No"};
+		String [] optionResults = {"You Lose", "You Win"};
+		Event event1 = new Event(0,"Want to do some drugs Bob?", options, optionResults);
 	}
 
 }
