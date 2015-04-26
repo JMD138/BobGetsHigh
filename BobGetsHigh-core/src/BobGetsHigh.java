@@ -10,7 +10,7 @@ import org.json.simple.parser.JSONParser;
 
 public class BobGetsHigh
 {
-	private Area current_area;
+	private Area currentArea;
     private ArrayList<String> inventory;
     private int sobrietyLevel;
 
