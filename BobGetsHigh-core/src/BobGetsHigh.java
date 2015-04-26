@@ -6,5 +6,9 @@ public class BobGetsHigh
 		
 		
 	}
+	
+	public void generateEvents(){
+		
+	}
 
 }
