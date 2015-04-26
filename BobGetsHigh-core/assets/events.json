@@ -1,0 +1,14 @@
+[
+  {
+    "eventId": 0,
+    "eventText": "Some Text",
+    "options": "{\"Do Drugs\", \"Dont Do Drugs\"}",
+    "optionResults": "{\"You Lose\", \"You Win\"}"
+  },
+  {
+    "eventId": 1,
+    "eventText": "Some Text",
+    "options": "{\"Do Drugs\", \"Dont Do Drugs\"}",
+    "optionResults": "{\"You Lose\", \"You Win\"}"
+  }
+]
