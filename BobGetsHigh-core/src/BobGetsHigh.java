@@ -76,6 +76,15 @@ public class BobGetsHigh
 	private void closeWindow(){
 		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 	}
+	
+	private void windowedMode(){
+		frame.setUndecorated(false);
+	}
+	
+	
+	public void updateSobrietyLevel(int num){
+		sobrietyLevel += num;
+	}
 
 }
 
