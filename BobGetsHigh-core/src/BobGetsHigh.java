@@ -14,12 +14,28 @@ public class BobGetsHigh
 	private Area currentArea;
     private ArrayList<String> inventory;
     private int sobrietyLevel;
-
+    
 	public static void main(String[] args)
 	{
-			
+		BobGetsHigh game = new BobGetsHigh();
 	}
 	
+	public BobGetsHigh()
+	{
+		generateMap();
+		generateArea();
+		generateEvents();
+	}
+	
+	public void generateMap()
+	{
+		
+	}
+	
+	public void generateArea()
+	{
+		
+	}
 	public void generateEvents()
 	{
 		
