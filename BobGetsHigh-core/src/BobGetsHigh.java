@@ -41,6 +41,7 @@ public class BobGetsHigh
 	public void makeFrame()
 	{
 		frame = new JFrame("Bob Gets High");
+		frame.setTitle("Bob Gets High!!!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         content = (JPanel)frame.getContentPane();
         JLabel emptyLabel = new JLabel("");
