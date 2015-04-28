@@ -47,7 +47,6 @@ public class BobGetsHigh
 		generateEvents();
 		generateMap();
 		makeFrame();
-		
 	}
 	
 	public void makeFrame()
@@ -67,6 +66,22 @@ public class BobGetsHigh
         frame.setResizable(false);
         frame.setUndecorated(true); 
         frame.setVisible(true);
+        
+        //initialize KeyListener
+        frame.addKeyListener(new KeyListener() 
+        {
+        	public void keyPressed(KeyEvent e) {}
+        	public void keyTyped(KeyEvent e) {}
+
+        	@Override
+        	public void keyReleased(KeyEvent e) 
+        	{
+        		if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
+        		{
+        			System.exit(0);
+        		}
+        	}
+        });
 	}
 	
 	public void generateMap()
@@ -98,6 +113,5 @@ public class BobGetsHigh
 	public void updateSobrietyLevel(int num){
 		sobrietyLevel += num;
 	}
-
 }
 
