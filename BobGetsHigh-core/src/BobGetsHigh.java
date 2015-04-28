@@ -5,13 +5,20 @@ import java.util.Iterator;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
 import javax.swing.*;
+
 import java.net.*;
+
 import javax.imageio.*;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
- 
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -27,17 +34,20 @@ public class BobGetsHigh
     private JPanel content;
     private BufferedImage image;
     private int currentEvent = 0;
+   
     
 	public static void main(String[] args)
 	{
 		BobGetsHigh game = new BobGetsHigh();
 	}
+		
 	
 	public BobGetsHigh()
 	{
 		generateEvents();
 		generateMap();
 		makeFrame();
+		
 	}
 	
 	public void makeFrame()
