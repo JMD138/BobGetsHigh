@@ -25,6 +25,8 @@ public class BobGetsHigh
     private int sobrietyLevel = 100;
     private JFrame frame;
     private JPanel content;
+    private BufferedImage image;
+    private int currentEvent = 0;
     
 	public static void main(String[] args)
 	{
