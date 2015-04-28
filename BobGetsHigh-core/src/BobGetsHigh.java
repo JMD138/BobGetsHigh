@@ -27,7 +27,8 @@ import org.json.simple.parser.JSONParser;
 
 public class BobGetsHigh
 {
-	private Area currentArea;
+	private SubArea currentSubArea;
+	private SuperArea currentSuperArea;
     private ArrayList<String> inventory;
     private int sobrietyLevel = 100;
     private JFrame frame;
@@ -44,8 +45,7 @@ public class BobGetsHigh
 	
 	public BobGetsHigh()
 	{
-		generateEvents();
-		generateMap();
+		generateGame();
 		makeFrame();
 	}
 	
@@ -83,24 +83,51 @@ public class BobGetsHigh
         	}
         });
 	}
-	
-	public void generateMap()
+
+	public void generateGame()
 	{
-	//	Map map = new Map();
-		Area area1, area2, area3;
-		area1 = new Area("Inside the Apartment", null);
-		area2 = new Area("Outside the Apartment", null);
-		area3 = new Area("At the Frat House", null);
-		System.out.println(area1.name + ", " + area2.name + ", " + area3.name);
+		SuperArea superA1, superA2, superA3;
+		superA1 = new SuperArea(0, "Bob Gets High, Part 1", generateSubAreas(1));
+		superA2 = new SuperArea(1, "Bob Gets High, Part 2", generateSubAreas(2));
+		superA3 = new SuperArea(2, "Bob Gets High, Part 3", generateSubAreas(3));
 	}
-	
-	public void generateEvents()
+		
+	public ArrayList<SubArea> generateSubAreas(int n)
+	{
+		SubArea subA1, subA2, subA3;
+		
+		// TO ADD: switch block to create the SubAreas necessary for the specific SuperArea (identified by int n)
+		subA1 = new SubArea(0, "Inside the Apartment", generateEvents(1));
+		subA2 = new SubArea(1, "Outside the Apartment", generateEvents(2));
+		subA3 = new SubArea(2, "At the Frat House", generateEvents(3));
+		
+		ArrayList<SubArea> s = new ArrayList<SubArea>();
+		s.add(subA1);
+		s.add(subA2);
+		s.add(subA3);
+		
+		return s;
+	}
+		
+	public ArrayList<Event> generateEvents(int n)
 	{
 		String [] options = {"Yes", "No"};
 		String [] optionResults = {"You Lose", "You Win"};
-		Event event1 = new Event(0,"Want to do some drugs Bob?", options, optionResults);
+		Event event1, event2, event3;
+		
+		// TO ADD: switch block to create the Events necessary for the specific subArea (identified by int n)
+		event1 = new Event(0,"Want to do some drugs Bob?", options, optionResults);
+		event2 = new Event(1,"Event 2", options, optionResults);
+		event3 = new Event(2,"Event 3", options, optionResults);
+		
+		ArrayList<Event> e = new ArrayList<Event>();
+		e.add(event1);
+		e.add(event2);
+		e.add(event3);
+		
+		return e;
 	}
-	
+
 	private void closeWindow(){
 		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 	}
