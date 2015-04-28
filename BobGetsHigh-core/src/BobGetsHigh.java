@@ -5,13 +5,17 @@ import java.util.Iterator;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
+
 import javax.swing.*;
+
 import java.net.*;
+
 import javax.imageio.*;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
- 
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -80,6 +84,12 @@ public class BobGetsHigh
 		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 	}
 	
+	//public void keyTyped(KeyEvent input) {
+    //    char key = input.getKeyChar();
+    //    if (key == 'q') System.exit(0);
+   // }
+
+  
 	private void windowedMode(){
 		frame.setUndecorated(false);
 	}
@@ -88,6 +98,9 @@ public class BobGetsHigh
 	public void updateSobrietyLevel(int num){
 		sobrietyLevel += num;
 	}
+	
+	
+	
 
 }
 
