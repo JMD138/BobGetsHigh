@@ -62,11 +62,11 @@ public class BobGetsHigh
 	public void generateMap()
 	{
 	//	Map map = new Map();
-		Area aptIn, aptOut, fratHouse;
-		aptIn = new Area("Inside the Apartment", null);
-		aptOut = new Area("Outside the Apartment", null);
-		fratHouse = new Area("At the Frat House", null);
-		
+		Area area1, area2, area3;
+		area1 = new Area("Inside the Apartment", null);
+		area2 = new Area("Outside the Apartment", null);
+		area3 = new Area("At the Frat House", null);
+		System.out.println(area1.name + ", " + area2.name + ", " + area3.name);
 	}
 	
 	public void generateEvents()
