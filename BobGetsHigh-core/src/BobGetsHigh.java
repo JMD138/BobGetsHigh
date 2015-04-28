@@ -5,6 +5,9 @@ import java.util.Iterator;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.*;
 
@@ -31,17 +34,20 @@ public class BobGetsHigh
     private JPanel content;
     private BufferedImage image;
     private int currentEvent = 0;
+   
     
 	public static void main(String[] args)
 	{
 		BobGetsHigh game = new BobGetsHigh();
 	}
+		
 	
 	public BobGetsHigh()
 	{
 		generateEvents();
 		generateMap();
 		makeFrame();
+		
 	}
 	
 	public void makeFrame()
@@ -84,12 +90,6 @@ public class BobGetsHigh
 		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 	}
 	
-	//public void keyTyped(KeyEvent input) {
-    //    char key = input.getKeyChar();
-    //    if (key == 'q') System.exit(0);
-   // }
-
-  
 	private void windowedMode(){
 		frame.setUndecorated(false);
 	}
@@ -98,9 +98,6 @@ public class BobGetsHigh
 	public void updateSobrietyLevel(int num){
 		sobrietyLevel += num;
 	}
-	
-	
-	
 
 }
 
