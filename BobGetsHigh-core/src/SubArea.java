@@ -24,4 +24,9 @@ public class SubArea
 	{
 		return name;
 	}
+	
+	public String toString()
+	{
+		return (this.name + ". Events: " + events.toString() + ".\n");
+	}
 }
