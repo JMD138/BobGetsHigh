@@ -25,17 +25,18 @@ import org.json.simple.parser.JSONParser;
 
 
 
-public class BobGetsHigh
+public class BobGetsHigh implements KeyListener 
 {
-	private SubArea currentSubArea;
-	private SuperArea currentSuperArea;
+	/*private SubArea currentSubArea;
+	private SuperArea currentSuperArea;*/
     private ArrayList<String> inventory;
     private int sobrietyLevel = 100;
     private JFrame frame;
     private JPanel content;
     private BufferedImage image;
     private int currentEvent = 0;
-   
+    private JTextArea backgroundPane;
+    private Color backgroundColor;
     
 	public static void main(String[] args)
 	{
@@ -48,7 +49,6 @@ public class BobGetsHigh
 		generateGame();
 		makeFrame();
 	}
-	
 	public void makeFrame()
 	{
 		frame = new JFrame("Bob Gets High");
@@ -63,36 +63,29 @@ public class BobGetsHigh
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
         frame.getContentPane().setBackground(Color.BLACK);
         frame.setLocation(x, y);
+        
+        backgroundPane = new JTextArea(0, 100);
+        backgroundColor = new Color(0,0,0);
+        backgroundPane.setBackground(backgroundColor);
+        backgroundPane.setEditable(false);
+        content.add(backgroundPane, BorderLayout.LINE_START);
+        
+        //initialize KeyListener
+        backgroundPane.addKeyListener(this);
         frame.setResizable(false);
         frame.setUndecorated(true); 
         frame.setVisible(true);
-        
-        //initialize KeyListener
-        frame.addKeyListener(new KeyListener() 
-        {
-        	public void keyPressed(KeyEvent e) {}
-        	public void keyTyped(KeyEvent e) {}
-
-        	@Override
-        	public void keyReleased(KeyEvent e) 
-        	{
-        		if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
-        		{
-        			System.exit(0);
-        		}
-        	}
-        });
 	}
 
 	public void generateGame()
 	{
-		SuperArea superA1, superA2, superA3;
+		/*SuperArea superA1, superA2, superA3;
 		superA1 = new SuperArea(0, "Bob Gets High, Part 1", generateSubAreas(1));
 		superA2 = new SuperArea(1, "Bob Gets High, Part 2", generateSubAreas(2));
-		superA3 = new SuperArea(2, "Bob Gets High, Part 3", generateSubAreas(3));
+		superA3 = new SuperArea(2, "Bob Gets High, Part 3", generateSubAreas(3));*/
 	}
 		
-	public ArrayList<SubArea> generateSubAreas(int n)
+	/*public ArrayList<SubArea> generateSubAreas(int n)
 	{
 		SubArea subA1, subA2, subA3;
 		
@@ -107,7 +100,7 @@ public class BobGetsHigh
 		s.add(subA3);
 		
 		return s;
-	}
+	}*/
 		
 	public ArrayList<Event> generateEvents(int n)
 	{
@@ -128,8 +121,10 @@ public class BobGetsHigh
 		return e;
 	}
 
+	
 	private void closeWindow(){
 		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+		System.exit(0);
 	}
 	
 	private void windowedMode(){
@@ -139,6 +134,32 @@ public class BobGetsHigh
 
 	public void updateSobrietyLevel(int num){
 		sobrietyLevel += num;
+	}
+
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		System.out.println(e);
+		if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
+		{
+			closeWindow();
+		}
+
+		
+	}
+
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 
