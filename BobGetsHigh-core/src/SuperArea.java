@@ -24,4 +24,8 @@ public class SuperArea
 	{
 		return name;
 	}
+	public String toString()
+	{
+		return ("SuperArea: " + name + ". \nSubAreas:\n" + subareas + ".");
+	}
 }
