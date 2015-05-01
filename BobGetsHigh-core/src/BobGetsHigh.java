@@ -176,4 +176,31 @@ public class BobGetsHigh // implements KeyListener
 		// TODO Auto-generated method stub
 		
 	}*/
+	
+	public void button()
+	{
+		//ImageIcon leftButtonIcon = createImageIcon("images/right.gif");
+		//ImageIcon rightButtonIcon = createImageIcon("images/right.gif");
+		
+		JButton b1 = new JButton("Option1");
+		b1.setVerticalTextPosition(AbstractButton.CENTER);
+		b1.setHorizontalTextPosition(AbstractButton.LEADING);
+		//add(b1);
+		
+		JButton b2 = new JButton("Option2");
+		b2.setVerticalTextPosition(AbstractButton.CENTER);
+		b2.setHorizontalTextPosition(AbstractButton.LEADING);
+		//add(b2);
+	}
+	
+	public static ImageIcon createImageIcon(String path) {
+		//URL imgURL = JButtonDemo.class.getResource(path);
+		//if (imgURL != null) {
+		//	return new ImageIcon(imgURL);
+		//} else {
+		//	System.err.println("Couldn't find image in system: " + path);
+			return null;
+		}
+	
+	
 }
