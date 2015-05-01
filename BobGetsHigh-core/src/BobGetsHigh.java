@@ -48,6 +48,7 @@ public class BobGetsHigh // implements KeyListener
 	{
 		generateGame();
 		makeFrame();
+		makeButton();
 	}
 	public void makeFrame()
 	{
@@ -151,33 +152,8 @@ public class BobGetsHigh // implements KeyListener
 		sobrietyLevel += num;
 	}
 
-/*
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		System.out.println(e);
-		if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
-		{
-			closeWindow();
-		}
-
-		
-	}
-
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}*/
-	
-	public void button()
+	public void makeButton()
 	{
 		//ImageIcon leftButtonIcon = createImageIcon("images/right.gif");
 		//ImageIcon rightButtonIcon = createImageIcon("images/right.gif");
@@ -193,14 +169,14 @@ public class BobGetsHigh // implements KeyListener
 		//add(b2);
 	}
 	
-	public static ImageIcon createImageIcon(String path) {
-		//URL imgURL = JButtonDemo.class.getResource(path);
-		//if (imgURL != null) {
-		//	return new ImageIcon(imgURL);
-		//} else {
-		//	System.err.println("Couldn't find image in system: " + path);
+	/*public static ImageIcon createImageIcon(String path) {
+		URL imgURL = JButton.class.getResource(path);
+		if (imgURL != null) {
+			return new ImageIcon(imgURL);
+		} else {
+			System.err.println("Couldn't find image in system: " + path);
 			return null;
-		}
+		}*/
 	
 	
 }
