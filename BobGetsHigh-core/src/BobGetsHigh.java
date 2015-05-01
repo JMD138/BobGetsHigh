@@ -161,12 +161,13 @@ public class BobGetsHigh // implements KeyListener
 		JButton b1 = new JButton("Option1");
 		b1.setVerticalTextPosition(AbstractButton.CENTER);
 		b1.setHorizontalTextPosition(AbstractButton.LEADING);
-		//add(b1);
+		frame.add(b1);
+		
 		
 		JButton b2 = new JButton("Option2");
 		b2.setVerticalTextPosition(AbstractButton.CENTER);
 		b2.setHorizontalTextPosition(AbstractButton.LEADING);
-		//add(b2);
+		frame.add(b2);
 	}
 	
 	/*public static ImageIcon createImageIcon(String path) {
