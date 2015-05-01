@@ -167,6 +167,7 @@ public class BobGetsHigh // implements KeyListener
 		JButton b2 = new JButton("Option2");
 		b2.setVerticalTextPosition(AbstractButton.CENTER);
 		b2.setHorizontalTextPosition(AbstractButton.LEADING);
+		b2.setLocation(0, 0);
 		frame.add(b2);
 	}
 	
