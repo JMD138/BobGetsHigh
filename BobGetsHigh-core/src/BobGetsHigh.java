@@ -50,6 +50,7 @@ public class BobGetsHigh // implements KeyListener
 		makeFrame();
 		makeButton();
 	}
+	
 	public void makeFrame()
 	{
 		frame = new JFrame("Bob Gets High");
@@ -161,12 +162,14 @@ public class BobGetsHigh // implements KeyListener
 		JButton b1 = new JButton("Option1");
 		b1.setVerticalTextPosition(AbstractButton.CENTER);
 		b1.setHorizontalTextPosition(AbstractButton.LEADING);
+		b1.setBounds(0, 0, 50, 100);
 		frame.add(b1);
 		
 		
 		JButton b2 = new JButton("Option2");
 		b2.setVerticalTextPosition(AbstractButton.CENTER);
 		b2.setHorizontalTextPosition(AbstractButton.LEADING);
+		b2.setBounds(0, 0, 50, 100); //int x, int y, int height, int width
 		frame.add(b2);
 	}
 	
