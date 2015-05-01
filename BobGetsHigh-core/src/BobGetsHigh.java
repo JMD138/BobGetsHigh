@@ -158,20 +158,24 @@ public class BobGetsHigh // implements KeyListener
 	{
 		//ImageIcon leftButtonIcon = createImageIcon("images/right.gif");
 		//ImageIcon rightButtonIcon = createImageIcon("images/right.gif");
+		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+		int buttonWidth = 100;
+		int buttonHeight = 50;
+		int buttonY = (int)(dimension.getHeight()/4*3);
+		int button1X = (int)(dimension.getWidth()/3-(buttonWidth/2));
+		int button2X = (int)((dimension.getWidth()/3)*2-(buttonWidth/2));
 		
 		JButton b1 = new JButton("Option1");
 		b1.setVerticalTextPosition(AbstractButton.CENTER);
 		b1.setHorizontalTextPosition(AbstractButton.LEADING);
-		b1.setBounds(0, 0, 50, 100);
+		b1.setBounds(button1X,buttonY, buttonWidth, buttonHeight);
 		frame.add(b1);
 		
 		
 		JButton b2 = new JButton("Option2");
 		b2.setVerticalTextPosition(AbstractButton.CENTER);
 		b2.setHorizontalTextPosition(AbstractButton.LEADING);
-
-		b2.setBounds(0, 0, 50, 100); //int x, int y, int height, int width
-
+		b2.setBounds(button2X, buttonY, buttonWidth, buttonHeight); //int x, int y, int width, int height
 		frame.add(b2);
 	}
 	
