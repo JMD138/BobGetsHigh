@@ -34,7 +34,7 @@ public class BobGetsHigh // implements KeyListener
     private JFrame frame;
     private JPanel content;
     private BufferedImage image;
-    private int currentEvent = 0;
+    private Event currentEvent;
 //    private JTextArea backgroundPane;
 //    private Color backgroundColor;
     
@@ -48,7 +48,7 @@ public class BobGetsHigh // implements KeyListener
 	{
 		generateGame();
 		makeFrame();
-		makeButton();
+		makeButton(currentEvent.getOptions(0),currentEvent.getOptions(1));
 	}
 	
 	public void makeFrame()
@@ -135,6 +135,7 @@ public class BobGetsHigh // implements KeyListener
 		e.add(event2);
 		e.add(event3);
 		
+		currentEvent = event1;
 		return e;
 	}
 
@@ -154,7 +155,7 @@ public class BobGetsHigh // implements KeyListener
 	}
 
 
-	public void makeButton()
+	public void makeButton(String text1, String text2)
 	{
 		//ImageIcon leftButtonIcon = createImageIcon("images/right.gif");
 		//ImageIcon rightButtonIcon = createImageIcon("images/right.gif");
@@ -164,7 +165,7 @@ public class BobGetsHigh // implements KeyListener
 		int button1X = (int)(frame.getWidth()/3-(buttonWidth/2));
 		int button2X = (int)((frame.getWidth()/3)*2-(buttonWidth/2));
 		
-		JButton b1 = new JButton("Option1");
+		JButton b1 = new JButton(text1);
 		b1.setVerticalTextPosition(AbstractButton.CENTER);
 		b1.setHorizontalTextPosition(AbstractButton.LEADING);
 		b1.setBounds(button1X,buttonY, buttonWidth, buttonHeight);
@@ -172,7 +173,7 @@ public class BobGetsHigh // implements KeyListener
 		frame.repaint();
 		
 		
-		JButton b2 = new JButton("Option2");
+		JButton b2 = new JButton(text2);
 		b2.setVerticalTextPosition(AbstractButton.CENTER);
 		b2.setHorizontalTextPosition(AbstractButton.LEADING);
 		b2.setBounds(button2X, buttonY, buttonWidth, buttonHeight); //int x, int y, int width, int height

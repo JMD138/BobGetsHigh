@@ -27,15 +27,15 @@ public class Event {
 	}
 	
 	//Event Options Getter
-	public String [] getOptions()
+	public String getOptions(int index)
 	{
-		return eventOptions;
+		return eventOptions[index];
 	}
 	
 	//Event Option Results Getter
-	public String [] getOptionResults()
+	public String getOptionResults(int index)
 	{
-		return eventOptionResults;
+		return eventOptionResults[index];
 	}
 	
 	public String toString()
