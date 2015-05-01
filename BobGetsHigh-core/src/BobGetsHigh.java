@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.*;
-
+ 
 import java.net.*;
 
 import javax.imageio.*;
@@ -49,6 +49,8 @@ public class BobGetsHigh // implements KeyListener
 		generateGame();
 		makeFrame();
 		makeButton(currentEvent.getOptions(0),currentEvent.getOptions(1));
+		
+		
 	}
 	
 	public void makeFrame()
@@ -65,6 +67,7 @@ public class BobGetsHigh // implements KeyListener
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
         frame.getContentPane().setBackground(Color.BLACK);
         frame.setLocation(x, y);
+       
         
 //        backgroundPane = new JTextArea(0, 100);
 //        backgroundColor = new Color(0,0,0);
@@ -73,12 +76,7 @@ public class BobGetsHigh // implements KeyListener
 //        content.add(backgroundPane, BorderLayout.LINE_START);
         
         //initialize KeyListener
-//        backgroundPane.addKeyListener(this);
-        frame.setResizable(false);
-        frame.setUndecorated(true); 
-        frame.setVisible(true);
-      //initialize KeyListener
-       /* frame.addKeyListener(new KeyListener()
+        /* frame.addKeyListener(new KeyListener()
         {
         	public void keyPressed(KeyEvent e) {}
         	public void keyTyped(KeyEvent e) {}
@@ -92,6 +90,11 @@ public class BobGetsHigh // implements KeyListener
         		}
         	}
         });*/
+        //backgroundPane.addKeyListener(this);
+        frame.setResizable(false);
+        frame.setUndecorated(true); 
+        frame.setVisible(true);
+      //initialize KeyListener
         
 	}
 	
@@ -193,6 +196,13 @@ public class BobGetsHigh // implements KeyListener
         	}
         });
 		
+		b1.addActionListener(new ActionListener() {          
+		    public void actionPerformed(ActionEvent e) 
+		    {
+		    	System.out.println("Mouse clicked button1");
+		    	//result.setText(currentEvent.getOptionResults(0));
+		    }
+		});
 		
 		JButton b2 = new JButton(text2);
 		b2.setVerticalTextPosition(AbstractButton.CENTER);
@@ -201,8 +211,33 @@ public class BobGetsHigh // implements KeyListener
 		frame.add(b2);
 		frame.repaint();
 		
+		b2.addKeyListener(new KeyListener()
+        {
+        	public void keyPressed(KeyEvent e) {}
+        	public void keyTyped(KeyEvent e) {}
+
+        	@Override
+        	public void keyReleased(KeyEvent e) 
+        	{
+        		if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
+        		{
+        			System.exit(0);
+        		}
+        	}
+        });
+		
+		b2.addActionListener(new ActionListener() {          
+		    public void actionPerformed(ActionEvent e) 
+		    {
+		    	System.out.println("Mouse clicked button2");
+		    	//result.setText(currentEvent.getOptionResults(1));
+		    }
+		});
 		
 	}
+	
+	
+	
 	
 	/*public static ImageIcon createImageIcon(String path) {
 		URL imgURL = JButton.class.getResource(path);
