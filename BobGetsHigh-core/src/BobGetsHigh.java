@@ -35,6 +35,8 @@ public class BobGetsHigh // implements KeyListener
     private JPanel content;
     private BufferedImage image;
     private int currentEvent = 0;
+    private JPanel panel1;
+    private JPanel panel2;
 //    private JTextArea backgroundPane;
 //    private Color backgroundColor;
     
@@ -48,6 +50,7 @@ public class BobGetsHigh // implements KeyListener
 	{
 		generateGame();
 		makeFrame();
+		makePanel();
 		makeButton();
 	}
 	
@@ -154,10 +157,33 @@ public class BobGetsHigh // implements KeyListener
 	}
 
 
+	public void makePanel()
+	{
+		int buttonwidth = 100;
+		int buttonheight = 50;
+		int buttony = (int)(frame.getHeight()/4*3);
+		int button1x = (int)(frame.getWidth()/3-(buttonwidth/2));
+		int button2x = (int)((frame.getWidth()/3)*2-(buttonwidth/2));
+	
+		JPanel panel1 = new JPanel();  //for button1 (b1)
+		panel1.setBounds(button1x,buttony, buttonwidth, buttonheight);
+		panel1.setBackground(Color.WHITE);
+		frame.add(panel1);
+		frame.repaint();
+		
+		JPanel panel2 = new JPanel();  // for button2 (b2)
+		panel2.setBounds(button1x,buttony, buttonwidth, buttonheight);
+		panel2.setBackground(Color.WHITE);
+		frame.add(panel2);
+		frame.repaint();
+	}
+	
+	
 	public void makeButton()
 	{
 		//ImageIcon leftButtonIcon = createImageIcon("images/right.gif");
 		//ImageIcon rightButtonIcon = createImageIcon("images/right.gif");
+		
 		int buttonWidth = 100;
 		int buttonHeight = 50;
 		int buttonY = (int)(frame.getHeight()/4*3);
@@ -168,14 +194,15 @@ public class BobGetsHigh // implements KeyListener
 		b1.setVerticalTextPosition(AbstractButton.CENTER);
 		b1.setHorizontalTextPosition(AbstractButton.LEADING);
 		b1.setBounds(button1X,buttonY, buttonWidth, buttonHeight);
-		frame.add(b1);
-		
+		panel1.add(b1);
+		panel1.repaint();
 		
 		JButton b2 = new JButton("Option2");
 		b2.setVerticalTextPosition(AbstractButton.CENTER);
 		b2.setHorizontalTextPosition(AbstractButton.LEADING);
 		b2.setBounds(button2X, buttonY, buttonWidth, buttonHeight); //int x, int y, int width, int height
-		frame.add(b2);
+		panel2.add(b2);
+		panel2.repaint();
 	}
 	
 	/*public static ImageIcon createImageIcon(String path) {
