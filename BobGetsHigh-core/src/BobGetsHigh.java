@@ -77,21 +77,23 @@ public class BobGetsHigh // implements KeyListener
         frame.setResizable(false);
         frame.setUndecorated(true); 
         frame.setVisible(true);
-      //initialize KeyListener
-       /* frame.addKeyListener(new KeyListener()
+		
+		JButton exitButton = new JButton("Exit");
+		exitButton.setVerticalTextPosition(AbstractButton.CENTER);
+		exitButton.setHorizontalTextPosition(AbstractButton.LEADING);
+		exitButton.setBounds(frame.getWidth() - 100, 20, 80, 30);
+		    
+		exitButton.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "quit");
+		exitButton.getActionMap().put("quit", new AbstractAction() 
         {
-        	public void keyPressed(KeyEvent e) {}
-        	public void keyTyped(KeyEvent e) {}
-
-        	@Override
-        	public void keyReleased(KeyEvent e) 
-        	{
-        		if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
-        		{
-        			System.exit(0);
-        		}
+			public void actionPerformed (ActionEvent e)
+			{
+				System.exit(0);
         	}
-        });*/
+        });
+		
+		frame.add(exitButton);
+		frame.repaint();
         
 	}
 	
@@ -174,10 +176,10 @@ public class BobGetsHigh // implements KeyListener
 		b1.setHorizontalTextPosition(AbstractButton.LEADING);
 		b1.setBounds(button1X,buttonY, buttonWidth, buttonHeight);
 		
-		
 		frame.add(b1);
 		frame.repaint();
 		
+		/*
 		b1.addKeyListener(new KeyListener()
         {
         	public void keyPressed(KeyEvent e) {}
@@ -192,7 +194,7 @@ public class BobGetsHigh // implements KeyListener
         		}
         	}
         });
-		
+        */
 		
 		JButton b2 = new JButton(text2);
 		b2.setVerticalTextPosition(AbstractButton.CENTER);
@@ -200,8 +202,6 @@ public class BobGetsHigh // implements KeyListener
 		b2.setBounds(button2X, buttonY, buttonWidth, buttonHeight); //int x, int y, int width, int height
 		frame.add(b2);
 		frame.repaint();
-		
-		
 	}
 	
 	/*public static ImageIcon createImageIcon(String path) {
