@@ -80,10 +80,10 @@ public class BobGetsHigh // implements KeyListener
         frame.setVisible(true);
 		
         // create an 'exit' button
-		JButton exitButton = new JButton("Exit");
+		JButton exitButton = new JButton("X");
 		exitButton.setVerticalTextPosition(AbstractButton.CENTER);
 		exitButton.setHorizontalTextPosition(AbstractButton.LEADING);
-		exitButton.setBounds(frame.getWidth() - 100, 20, 80, 30);
+		exitButton.setBounds(0, 25, 50, 30);
 		    
 		// create a new input in the InputMap with a paired Action in the ActionMap
 		// so that when the ESCAPE key is pressed, the program ends. If we don't want
