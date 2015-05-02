@@ -89,14 +89,20 @@ public class BobGetsHigh // implements KeyListener
 		// so that when the ESCAPE key is pressed, the program ends. If we don't want
 		// an exit button, this code can be transferred to another JComponent (that
 		// might require some slight alteration).
-		exitButton.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "quit");
-		exitButton.getActionMap().put("quit", new AbstractAction() 
-        {
+		
+		Action exit = new AbstractAction()
+		{
 			public void actionPerformed (ActionEvent e)
 			{
 				System.exit(0);
         	}
-        });
+		};
+				
+		exitButton.addActionListener(exit);
+		
+		exitButton.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "quit");
+		exitButton.getActionMap().put("quit", exit);
+
 		
 		frame.add(exitButton);
 		frame.repaint();
