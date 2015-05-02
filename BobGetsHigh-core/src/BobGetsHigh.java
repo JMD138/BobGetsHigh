@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.*;
-
+ 
 import java.net.*;
 
 import javax.imageio.*;
@@ -49,6 +49,8 @@ public class BobGetsHigh // implements KeyListener
 		generateGame();
 		makeFrame();
 		makeButton(currentEvent.getOptions(0),currentEvent.getOptions(1));
+		
+		
 	}
 	
 	public void makeFrame()
@@ -65,6 +67,7 @@ public class BobGetsHigh // implements KeyListener
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
         frame.getContentPane().setBackground(Color.BLACK);
         frame.setLocation(x, y);
+       
         
 //        backgroundPane = new JTextArea(0, 100);
 //        backgroundColor = new Color(0,0,0);
@@ -72,17 +75,20 @@ public class BobGetsHigh // implements KeyListener
 //        backgroundPane.setEditable(false);
 //        content.add(backgroundPane, BorderLayout.LINE_START);
         
-        //initialize KeyListener
-//        backgroundPane.addKeyListener(this);
         frame.setResizable(false);
         frame.setUndecorated(true); 
         frame.setVisible(true);
 		
+        // create an 'exit' button
 		JButton exitButton = new JButton("Exit");
 		exitButton.setVerticalTextPosition(AbstractButton.CENTER);
 		exitButton.setHorizontalTextPosition(AbstractButton.LEADING);
 		exitButton.setBounds(frame.getWidth() - 100, 20, 80, 30);
 		    
+		// create a new input in the InputMap with a paired Action in the ActionMap
+		// so that when the ESCAPE key is pressed, the program ends. If we don't want
+		// an exit button, this code can be transferred to another JComponent (that
+		// might require some slight alteration).
 		exitButton.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "quit");
 		exitButton.getActionMap().put("quit", new AbstractAction() 
         {
@@ -94,7 +100,6 @@ public class BobGetsHigh // implements KeyListener
 		
 		frame.add(exitButton);
 		frame.repaint();
-        
 	}
 	
         
@@ -196,13 +201,47 @@ public class BobGetsHigh // implements KeyListener
         });
         */
 		
+		b1.addActionListener(new ActionListener() {          
+		    public void actionPerformed(ActionEvent e) 
+		    {
+		    	System.out.println("Mouse clicked button1");
+		    	//result.setText(currentEvent.getOptionResults(0));
+		    }
+		});
+		
 		JButton b2 = new JButton(text2);
 		b2.setVerticalTextPosition(AbstractButton.CENTER);
 		b2.setHorizontalTextPosition(AbstractButton.LEADING);
 		b2.setBounds(button2X, buttonY, buttonWidth, buttonHeight); //int x, int y, int width, int height
 		frame.add(b2);
 		frame.repaint();
+		
+		b2.addKeyListener(new KeyListener()
+        {
+        	public void keyPressed(KeyEvent e) {}
+        	public void keyTyped(KeyEvent e) {}
+
+        	@Override
+        	public void keyReleased(KeyEvent e) 
+        	{
+        		if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
+        		{
+        			System.exit(0);
+        		}
+        	}
+        });
+		
+		b2.addActionListener(new ActionListener() {          
+		    public void actionPerformed(ActionEvent e) 
+		    {
+		    	System.out.println("Mouse clicked button2");
+		    	//result.setText(currentEvent.getOptionResults(1));
+		    }
+		});
 	}
+	
+	
+	
 	
 	/*public static ImageIcon createImageIcon(String path) {
 		URL imgURL = JButton.class.getResource(path);
