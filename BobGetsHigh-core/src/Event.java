@@ -5,9 +5,9 @@ public class Event {
 	private String eventText;
 	private String [] eventOptions;
 	private String [] eventOptionResults;
-	private int [] sobrietyResults;
+	private String [] sobrietyResults;
 	
-	public Event(int eId, String eText, String [] eOptions, String [] eOptionResults, int [] eSobrietyResults)
+	public Event(int eId, String eText, String [] eOptions, String [] eOptionResults, String [] eSobrietyResults)
 	{
 		eventId = eId;
 		eventText = eText;
@@ -42,7 +42,7 @@ public class Event {
 	
 	public int getSobrietyResults(int index)
 	{
-		return sobrietyResults[index];
+		return Integer.parseInt(sobrietyResults[index]);
 	}
 	
 	public String toString()

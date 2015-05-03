@@ -1,5 +1,7 @@
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.awt.*;
@@ -39,8 +41,8 @@ public class BobGetsHigh // implements KeyListener
     private BufferedImage image;
     private Event currentEvent;
     private int button2X;
-    private static final int BUTTON_WIDTH = 100;
-    private static final int BUTTON_HEIGHT = 50; 
+    private static final int BUTTON_WIDTH = 200;
+    private static final int BUTTON_HEIGHT = 40; 
     private int buttonY;
     private int button1X;
     
@@ -160,31 +162,36 @@ public class BobGetsHigh // implements KeyListener
 		
 	public ArrayList<Event> generateEvents(int n)
 	{
-		/*try{
-			JSONParser parser = new JSONParser();
-			parser.parse();
-		}
-		catch(ParseException pe){
-		    System.out.println("position: " + pe.getPosition());
-		    System.out.println(pe);
-		 }*/
-		
-		String [] options = {"Yes", "No"};
-		String [] optionResults = {"You Lose", "You Win"};
-		int [] sobrietyResults = {-100, 0};
-		Event event1, event2, event3;
-		
-		// TO ADD: switch block to create the Events necessary for the specific subArea (identified by int n)
-		event1 = new Event(0,"Want to do some drugs Bob?", options, optionResults, sobrietyResults);
-		event2 = new Event(1,"Event 2", options, optionResults, sobrietyResults);
-		event3 = new Event(2,"Event 3", options, optionResults, sobrietyResults);
-		
 		ArrayList<Event> e = new ArrayList<Event>();
-		e.add(event1);
-		e.add(event2);
-		e.add(event3);
-		
-		currentEvent = event1;
+			JSONParser parser = new JSONParser();
+			 JSONArray a = null;
+			try {
+				a = (JSONArray) parser.parse(new FileReader("assets/events.json"));
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (ParseException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			
+			for (Object o : a)
+			  {
+			    JSONObject event = (JSONObject) o;
+			    
+			    int eventId = Integer.parseInt((String)event.get("eventId"));
+			    String eventText = (String) event.get("eventText");
+			    String [] options = ((String) event.get("options")).split(",");
+				String [] optionResults = ((String) event.get("optionResults")).split(",");
+				String [] sobrietyResults = ((String) event.get("sobrietyResults")).split(",");
+			    e.add(new Event(eventId, eventText, options, optionResults, sobrietyResults));
+			  }
+		currentEvent = e.get(0);
+		System.out.println(e);
 		return e;
 	}
 
@@ -229,8 +236,8 @@ public class BobGetsHigh // implements KeyListener
 		    {
 		    	System.out.println("Mouse clicked button1");
 		    	//result.setText(currentEvent.getOptionResults(0));
-		    	updateSobrietyLevel(-10);
-		    	updateStoryText("This is a test of the emergency broadcast system");
+		    	updateSobrietyLevel(currentEvent.getSobrietyResults(0));
+		    	updateStoryText(currentEvent.getOptionResults(0));
 		    }
 		});
 	
@@ -246,6 +253,8 @@ public class BobGetsHigh // implements KeyListener
 		    {
 		    	System.out.println("Mouse clicked button2");
 		    	//result.setText(currentEvent.getOptionResults(1));
+		    	updateSobrietyLevel(currentEvent.getSobrietyResults(1));
+		    	updateStoryText(currentEvent.getOptionResults(1));
 		    }
 		});
 		

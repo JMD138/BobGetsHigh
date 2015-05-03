@@ -1,14 +1,16 @@
 [
   {
-    "eventId": 0,
-    "eventText": "Some Text",
-    "options": "{\"Do Drugs\", \"Dont Do Drugs\"}",
-    "optionResults": "{\"You Lose\", \"You Win\"}"
+    "eventId": "0",
+    "eventText": "Dr. Gourd says: \"Do you want to do some Drugs?\"",
+    "options": "Do Drugs,Dont Do Drugs",
+    "optionResults": "You Lose,You Win",
+    "sobrietyResults": "-100,0"
   },
   {
-    "eventId": 1,
-    "eventText": "Some Text",
-    "options": "{\"Do Drugs\", \"Dont Do Drugs\"}",
-    "optionResults": "{\"You Lose\", \"You Win\"}"
+    "eventId": "1",
+    "eventText": "Text 2",
+    "options": "Do Drugs,Dont Do Drugs",
+    "optionResults": "You Lose,You Win",
+    "sobrietyResults": "-100,0"
   }
 ]
