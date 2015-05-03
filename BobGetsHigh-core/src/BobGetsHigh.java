@@ -32,10 +32,16 @@ public class BobGetsHigh // implements KeyListener
     private ArrayList<String> inventory;
     private int sobrietyLevel = 100;
     private JFrame frame;
+    private JLabel sobrietyMeter;
     private JPanel content;
     private JLabel storyText;
     private BufferedImage image;
     private Event currentEvent;
+    private int button2X;
+    private static final int BUTTON_WIDTH = 100;
+    private static final int BUTTON_HEIGHT = 50; 
+    private int buttonY;
+    private int button1X;
     
 //    private JTextArea backgroundPane;
 //    private Color backgroundColor;
@@ -108,7 +114,7 @@ public class BobGetsHigh // implements KeyListener
 		frame.add(exitButton);
 		frame.repaint();
 		
-		JLabel sobrietyMeter = new JLabel("Sobriety Level: " + sobrietyLevel + "%");
+		sobrietyMeter = new JLabel("Sobriety Level: " + sobrietyLevel + "%");
 		sobrietyMeter.setVerticalTextPosition(AbstractButton.CENTER);
 		sobrietyMeter.setHorizontalTextPosition(AbstractButton.LEADING);
 		sobrietyMeter.setFont(new Font("Arial", 1, 18));
@@ -117,6 +123,10 @@ public class BobGetsHigh // implements KeyListener
 		
 		frame.add(sobrietyMeter);
 		frame.repaint();
+		
+		buttonY = (int)(frame.getHeight()/4*3);
+		button1X = (int)(frame.getWidth()/3-(BUTTON_WIDTH/2));
+		button2X = (int)((frame.getWidth()/3)*2-(BUTTON_WIDTH/2));
 	}
 	
         
@@ -179,8 +189,11 @@ public class BobGetsHigh // implements KeyListener
 	}
 	
 
-	public void updateSobrietyLevel(int num){
+	public void updateSobrietyLevel(int num)
+	{
 		sobrietyLevel += num;
+		sobrietyMeter.setText("Sobriety: " + sobrietyLevel + "%");
+		frame.repaint();
 	}
 
 
@@ -188,16 +201,11 @@ public class BobGetsHigh // implements KeyListener
 	{
 		//ImageIcon leftButtonIcon = createImageIcon("images/right.gif");
 		//ImageIcon rightButtonIcon = createImageIcon("images/right.gif");
-		int buttonWidth = 100;
-		int buttonHeight = 50;
-		int buttonY = (int)(frame.getHeight()/4*3);
-		int button1X = (int)(frame.getWidth()/3-(buttonWidth/2));
-		int button2X = (int)((frame.getWidth()/3)*2-(buttonWidth/2));
 		
 		JButton b1 = new JButton(text1);
 		b1.setVerticalTextPosition(AbstractButton.CENTER);
 		b1.setHorizontalTextPosition(AbstractButton.LEADING);
-		b1.setBounds(button1X,buttonY, buttonWidth, buttonHeight);
+		b1.setBounds(button1X,buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
 		
 		frame.add(b1);
 		frame.repaint();
@@ -224,13 +232,14 @@ public class BobGetsHigh // implements KeyListener
 		    {
 		    	System.out.println("Mouse clicked button1");
 		    	//result.setText(currentEvent.getOptionResults(0));
+		    	updateSobrietyLevel(-10);
 		    }
 		});
-		
+	
 		JButton b2 = new JButton(text2);
 		b2.setVerticalTextPosition(AbstractButton.CENTER);
 		b2.setHorizontalTextPosition(AbstractButton.LEADING);
-		b2.setBounds(button2X, buttonY, buttonWidth, buttonHeight); //int x, int y, int width, int height
+		b2.setBounds(button2X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT); //int x, int y, int width, int height
 		frame.add(b2);
 		frame.repaint();
 		
@@ -257,7 +266,7 @@ public class BobGetsHigh // implements KeyListener
 		    }
 		});
 	}
-	
+
 	
 	
 	
