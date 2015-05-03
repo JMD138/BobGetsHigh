@@ -209,8 +209,17 @@ public class BobGetsHigh // implements KeyListener
 	public void updateSobrietyLevel(int num)
 	{
 		sobrietyLevel += num;
-		sobrietyMeter.setText("Sobriety: " + sobrietyLevel + "%");
-		frame.repaint();
+		if (sobrietyLevel <= 0)
+		{
+			sobrietyMeter.setText("Sobriety Level: 0%");
+			gameOver();
+		}
+		else
+		{
+			sobrietyMeter.setText("Sobriety Level: " + sobrietyLevel + "%");
+			updateStoryText("This is a test of the emergency broadcast system");
+			frame.repaint();
+		}
 	}
 	
 	public void updateStoryText(String text){
@@ -234,10 +243,10 @@ public class BobGetsHigh // implements KeyListener
 		b1.addActionListener(new ActionListener() {          
 		    public void actionPerformed(ActionEvent e) 
 		    {
-		    	System.out.println("Mouse clicked button1");
 		    	//result.setText(currentEvent.getOptionResults(0));
 		    	updateSobrietyLevel(currentEvent.getSobrietyResults(0));
 		    	updateStoryText(currentEvent.getOptionResults(0));
+
 		    }
 		});
 	
@@ -251,7 +260,6 @@ public class BobGetsHigh // implements KeyListener
 		b2.addActionListener(new ActionListener() {          
 		    public void actionPerformed(ActionEvent e) 
 		    {
-		    	System.out.println("Mouse clicked button2");
 		    	//result.setText(currentEvent.getOptionResults(1));
 		    	updateSobrietyLevel(currentEvent.getSobrietyResults(1));
 		    	updateStoryText(currentEvent.getOptionResults(1));
@@ -274,4 +282,10 @@ public class BobGetsHigh // implements KeyListener
 			System.err.println("Couldn't find image in system: " + path);
 			return null;
 		}*/	
+	public void gameOver()
+	{
+		updateStoryText("You got arrested. You must have been REALLY high..."
+						+ " Press ESC to exit");
+		frame.repaint();
+	}
 }
