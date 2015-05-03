@@ -33,8 +33,10 @@ public class BobGetsHigh // implements KeyListener
     private int sobrietyLevel = 100;
     private JFrame frame;
     private JPanel content;
+    private JLabel storyText;
     private BufferedImage image;
     private Event currentEvent;
+    
 //    private JTextArea backgroundPane;
 //    private Color backgroundColor;
     
@@ -63,21 +65,20 @@ public class BobGetsHigh // implements KeyListener
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
         frame.setSize((int)dimension.getWidth(), (int)dimension.getHeight());
-        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
-        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2); // X center
+        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);  //Y center
         frame.getContentPane().setBackground(Color.BLACK);
-        frame.setLocation(x, y);
-       
         
-//        backgroundPane = new JTextArea(0, 100);
-//        backgroundColor = new Color(0,0,0);
-//        backgroundPane.setBackground(backgroundColor);
-//        backgroundPane.setEditable(false);
-//        content.add(backgroundPane, BorderLayout.LINE_START);
+        //Create a style story text
+        storyText = new JLabel(currentEvent.getEventText(), JLabel.CENTER); //Set text equal to current event text
+        storyText.setForeground(Color.WHITE); //Set text color
+        storyText.setLocation((frame.getWidth()/2),frame.getHeight()/2);
+        frame.add(storyText); //Add to the frame
         
-        frame.setResizable(false);
-        frame.setUndecorated(true); 
-        frame.setVisible(true);
+        frame.setLocation(x, y); //Set Frame Location
+        frame.setResizable(false); //Frame is not resizable
+        frame.setUndecorated(true);  //No decoration for the frame
+        frame.setVisible(true); //Make visible
 		
         // create an 'exit' button
 		JButton exitButton = new JButton("X");
