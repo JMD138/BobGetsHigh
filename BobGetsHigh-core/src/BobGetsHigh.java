@@ -237,6 +237,13 @@ public class BobGetsHigh // implements KeyListener
 		    	//result.setText(currentEvent.getOptionResults(1));
 		    }
 		});
+		
+		//Invisible Button 
+		JButton invisibleButton = new JButton();
+		invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
+		invisibleButton.setBorderPainted(false);
+		frame.add(invisibleButton);
+		frame.repaint();
 	}
 
 	/*public static ImageIcon createImageIcon(String path) {
