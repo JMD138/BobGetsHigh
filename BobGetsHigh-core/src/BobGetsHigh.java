@@ -23,8 +23,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-
-
 public class BobGetsHigh // implements KeyListener 
 {
 	private SubArea currentSubArea;
@@ -65,9 +63,11 @@ public class BobGetsHigh // implements KeyListener
 		frame = new JFrame("Bob Gets High");
 		frame.setTitle("Bob Gets High");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         content = (JPanel)frame.getContentPane();
         JLabel emptyLabel = new JLabel("");
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        
         frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
         frame.setSize((int)dimension.getWidth(), (int)dimension.getHeight());
         int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2); // X center
@@ -210,6 +210,11 @@ public class BobGetsHigh // implements KeyListener
 		b1.setHorizontalTextPosition(AbstractButton.LEADING);
 		b1.setBounds(button1X,buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
 		
+		Dimension buttonDimension = new Dimension(100, 50);
+		b1.setPreferredSize(buttonDimension);
+		b1.setMaximumSize(buttonDimension);
+		b1.setMinimumSize(buttonDimension);
+		
 		frame.add(b1);
 		frame.repaint();
 		
@@ -227,6 +232,11 @@ public class BobGetsHigh // implements KeyListener
 		b2.setVerticalTextPosition(AbstractButton.CENTER);
 		b2.setHorizontalTextPosition(AbstractButton.LEADING);
 		b2.setBounds(button2X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT); //int x, int y, int width, int height
+		
+		b2.setPreferredSize(buttonDimension);
+		b2.setMaximumSize(buttonDimension);
+		b2.setMinimumSize(buttonDimension);
+		
 		frame.add(b2);
 		frame.repaint();
 		
@@ -237,13 +247,6 @@ public class BobGetsHigh // implements KeyListener
 		    	//result.setText(currentEvent.getOptionResults(1));
 		    }
 		});
-		
-		//Invisible Button 
-		JButton invisibleButton = new JButton();
-		invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
-		invisibleButton.setBorderPainted(false);
-		frame.add(invisibleButton);
-		frame.repaint();
 	}
 
 	/*public static ImageIcon createImageIcon(String path) {
