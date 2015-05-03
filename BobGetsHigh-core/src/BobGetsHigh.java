@@ -202,8 +202,16 @@ public class BobGetsHigh // implements KeyListener
 	public void updateSobrietyLevel(int num)
 	{
 		sobrietyLevel += num;
-		sobrietyMeter.setText("Sobriety: " + sobrietyLevel + "%");
-		frame.repaint();
+		if (sobrietyLevel <= 0)
+		{
+			sobrietyMeter.setText("Sobriety Level: 0%");
+			//gameOver()
+		}
+		else
+		{
+			sobrietyMeter.setText("Sobriety Level: " + sobrietyLevel + "%");
+			frame.repaint();
+		}
 	}
 	
 	public void updateStoryText(String text){
