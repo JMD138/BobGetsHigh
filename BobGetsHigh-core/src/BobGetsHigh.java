@@ -236,7 +236,6 @@ public class BobGetsHigh // implements KeyListener
 		b1.addActionListener(new ActionListener() {          
 		    public void actionPerformed(ActionEvent e) 
 		    {
-		    	System.out.println("Mouse clicked button1");
 		    	//result.setText(currentEvent.getOptionResults(0));
 		    	updateSobrietyLevel(-10);
 		    }
@@ -252,7 +251,6 @@ public class BobGetsHigh // implements KeyListener
 		b2.addActionListener(new ActionListener() {          
 		    public void actionPerformed(ActionEvent e) 
 		    {
-		    	System.out.println("Mouse clicked button2");
 		    	//result.setText(currentEvent.getOptionResults(1));
 		    }
 		});
