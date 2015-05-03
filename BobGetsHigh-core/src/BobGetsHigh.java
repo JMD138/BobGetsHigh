@@ -161,12 +161,13 @@ public class BobGetsHigh // implements KeyListener
 	{
 		String [] options = {"Yes", "No"};
 		String [] optionResults = {"You Lose", "You Win"};
+		int [] sobrietyResults = {-100, 0};
 		Event event1, event2, event3;
 		
 		// TO ADD: switch block to create the Events necessary for the specific subArea (identified by int n)
-		event1 = new Event(0,"Want to do some drugs Bob?", options, optionResults);
-		event2 = new Event(1,"Event 2", options, optionResults);
-		event3 = new Event(2,"Event 3", options, optionResults);
+		event1 = new Event(0,"Want to do some drugs Bob?", options, optionResults, sobrietyResults);
+		event2 = new Event(1,"Event 2", options, optionResults, sobrietyResults);
+		event3 = new Event(2,"Event 3", options, optionResults, sobrietyResults);
 		
 		ArrayList<Event> e = new ArrayList<Event>();
 		e.add(event1);
