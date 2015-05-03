@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.*;
- 
+
 import java.net.*;
 
 import javax.imageio.*;
@@ -22,6 +22,7 @@ import java.util.Map;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 
 
@@ -159,6 +160,15 @@ public class BobGetsHigh // implements KeyListener
 		
 	public ArrayList<Event> generateEvents(int n)
 	{
+		/*try{
+			JSONParser parser = new JSONParser();
+			parser.parse();
+		}
+		catch(ParseException pe){
+		    System.out.println("position: " + pe.getPosition());
+		    System.out.println(pe);
+		 }*/
+		
 		String [] options = {"Yes", "No"};
 		String [] optionResults = {"You Lose", "You Win"};
 		int [] sobrietyResults = {-100, 0};
@@ -242,7 +252,7 @@ public class BobGetsHigh // implements KeyListener
 		//Invisible Button 
 		JButton invisibleButton = new JButton();
 		invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
-		invisibleButton.setBorderPainted(false);
+		invisibleButton.setVisible(false);
 		frame.add(invisibleButton);
 		frame.repaint();
 	}
