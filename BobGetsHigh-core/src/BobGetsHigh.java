@@ -51,7 +51,6 @@ public class BobGetsHigh // implements KeyListener
 		generateGame();
 		makeFrame();
 		makeButton(currentEvent.getOptions(0),currentEvent.getOptions(1));
-		updateStoryText("This is a test of the emergency broadcast system");
 		
 	}
 	
@@ -210,6 +209,7 @@ public class BobGetsHigh // implements KeyListener
 		    public void actionPerformed(ActionEvent e) 
 		    {
 		    	System.out.println("Mouse clicked button1");
+		    	updateStoryText("This is a test of the emergency broadcast system");
 		    }
 		});
 		
