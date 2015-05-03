@@ -106,6 +106,16 @@ public class BobGetsHigh // implements KeyListener
 		
 		frame.add(exitButton);
 		frame.repaint();
+		
+		JLabel sobrietyMeter = new JLabel("Sobriety Level: " + sobrietyLevel + "%");
+		sobrietyMeter.setVerticalTextPosition(AbstractButton.CENTER);
+		sobrietyMeter.setHorizontalTextPosition(AbstractButton.LEADING);
+		sobrietyMeter.setFont(new Font("Arial", 1, 18));
+		sobrietyMeter.setBounds(frame.getWidth() - 200, 25, 200, 30);
+		sobrietyMeter.setForeground(Color.WHITE);
+		
+		frame.add(sobrietyMeter);
+		frame.repaint();
 	}
 	
         
@@ -113,6 +123,7 @@ public class BobGetsHigh // implements KeyListener
 
 	public void generateGame()
 	{
+		sobrietyLevel = 100;
 		SuperArea superA1, superA2, superA3;
 		superA1 = new SuperArea(0, "Bob Gets High, Part 1", generateSubAreas(1));
 		superA2 = new SuperArea(1, "Bob Gets High, Part 2", generateSubAreas(2));
