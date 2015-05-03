@@ -58,7 +58,6 @@ public class BobGetsHigh // implements KeyListener
 		makeFrame();
 		makeButton(currentEvent.getOptions(0),currentEvent.getOptions(1));
 		
-		
 	}
 	
 	public void makeFrame()
@@ -195,6 +194,10 @@ public class BobGetsHigh // implements KeyListener
 		sobrietyMeter.setText("Sobriety: " + sobrietyLevel + "%");
 		frame.repaint();
 	}
+	
+	public void updateStoryText(String text){
+		storyText.setText(text);
+	}
 
 
 	public void makeButton(String text1, String text2)
@@ -210,29 +213,13 @@ public class BobGetsHigh // implements KeyListener
 		frame.add(b1);
 		frame.repaint();
 		
-		/*
-		b1.addKeyListener(new KeyListener()
-        {
-        	public void keyPressed(KeyEvent e) {}
-        	public void keyTyped(KeyEvent e) {}
-
-        	@Override
-        	public void keyReleased(KeyEvent e) 
-        	{
-        		if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
-        		{
-        			System.exit(0);
-        		}
-        	}
-        });
-        */
-		
 		b1.addActionListener(new ActionListener() {          
 		    public void actionPerformed(ActionEvent e) 
 		    {
 		    	System.out.println("Mouse clicked button1");
 		    	//result.setText(currentEvent.getOptionResults(0));
 		    	updateSobrietyLevel(-10);
+		    	updateStoryText("This is a test of the emergency broadcast system");
 		    }
 		});
 	
@@ -243,21 +230,6 @@ public class BobGetsHigh // implements KeyListener
 		frame.add(b2);
 		frame.repaint();
 		
-		b2.addKeyListener(new KeyListener()
-        {
-        	public void keyPressed(KeyEvent e) {}
-        	public void keyTyped(KeyEvent e) {}
-
-        	@Override
-        	public void keyReleased(KeyEvent e) 
-        	{
-        		if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
-        		{
-        			System.exit(0);
-        		}
-        	}
-        });
-		
 		b2.addActionListener(new ActionListener() {          
 		    public void actionPerformed(ActionEvent e) 
 		    {
@@ -267,9 +239,6 @@ public class BobGetsHigh // implements KeyListener
 		});
 	}
 
-	
-	
-	
 	/*public static ImageIcon createImageIcon(String path) {
 		URL imgURL = JButton.class.getResource(path);
 		if (imgURL != null) {
@@ -277,7 +246,5 @@ public class BobGetsHigh // implements KeyListener
 		} else {
 			System.err.println("Couldn't find image in system: " + path);
 			return null;
-		}*/
-	
-	
+		}*/	
 }
