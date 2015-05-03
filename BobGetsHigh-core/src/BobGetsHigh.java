@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.*;
- 
+
 import java.net.*;
 
 import javax.imageio.*;
@@ -22,6 +22,7 @@ import java.util.Map;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 
 
@@ -159,14 +160,24 @@ public class BobGetsHigh // implements KeyListener
 		
 	public ArrayList<Event> generateEvents(int n)
 	{
+		/*try{
+			JSONParser parser = new JSONParser();
+			parser.parse();
+		}
+		catch(ParseException pe){
+		    System.out.println("position: " + pe.getPosition());
+		    System.out.println(pe);
+		 }*/
+		
 		String [] options = {"Yes", "No"};
 		String [] optionResults = {"You Lose", "You Win"};
+		int [] sobrietyResults = {-100, 0};
 		Event event1, event2, event3;
 		
 		// TO ADD: switch block to create the Events necessary for the specific subArea (identified by int n)
-		event1 = new Event(0,"Want to do some drugs Bob?", options, optionResults);
-		event2 = new Event(1,"Event 2", options, optionResults);
-		event3 = new Event(2,"Event 3", options, optionResults);
+		event1 = new Event(0,"Want to do some drugs Bob?", options, optionResults, sobrietyResults);
+		event2 = new Event(1,"Event 2", options, optionResults, sobrietyResults);
+		event3 = new Event(2,"Event 3", options, optionResults, sobrietyResults);
 		
 		ArrayList<Event> e = new ArrayList<Event>();
 		e.add(event1);
@@ -241,7 +252,7 @@ public class BobGetsHigh // implements KeyListener
 		//Invisible Button 
 		JButton invisibleButton = new JButton();
 		invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
-		invisibleButton.setBorderPainted(false);
+		invisibleButton.setVisible(false);
 		frame.add(invisibleButton);
 		frame.repaint();
 	}

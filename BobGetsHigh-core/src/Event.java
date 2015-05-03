@@ -5,13 +5,15 @@ public class Event {
 	private String eventText;
 	private String [] eventOptions;
 	private String [] eventOptionResults;
+	private int [] sobrietyResults;
 	
-	public Event(int eId, String eText, String [] eOptions, String [] eOptionResults)
+	public Event(int eId, String eText, String [] eOptions, String [] eOptionResults, int [] eSobrietyResults)
 	{
 		eventId = eId;
 		eventText = eText;
 		eventOptions = eOptions;
 		eventOptionResults = eOptionResults;
+		sobrietyResults = eSobrietyResults;
 	}
 	
 	//Event Id Getter
@@ -38,8 +40,14 @@ public class Event {
 		return eventOptionResults[index];
 	}
 	
+	public int getSobrietyResults(int index)
+	{
+		return sobrietyResults[index];
+	}
+	
 	public String toString()
 	{
 		return (this.eventText);
 	}
+	
 }
