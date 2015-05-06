@@ -36,7 +36,7 @@ public class BobGetsHigh // implements KeyListener
     private JFrame frame;
     private JLabel sobrietyMeter;
     private JPanel content;
-    private JLabel storyText;
+    private JTextArea storyText;
     private BufferedImage image;
     private Event currentEvent;
     private int button2X;
@@ -76,9 +76,13 @@ public class BobGetsHigh // implements KeyListener
         frame.getContentPane().setBackground(Color.BLACK);
         
         //Create a style story text
-        storyText = new JLabel(currentEvent.getEventText(), JLabel.CENTER); //Set text equal to current event text
+        storyText = new JTextArea(currentEvent.getEventText()); //Set text equal to current event text
         storyText.setForeground(Color.WHITE); //Set text color
-        storyText.setLocation((frame.getWidth()/2),frame.getHeight()/2);
+        storyText.setBackground(Color.MAGENTA);
+        storyText.setLineWrap(true);
+        storyText.setWrapStyleWord(true);
+        storyText.setEditable(false);
+        storyText.setBounds(frame.getWidth()/2,frame.getHeight()/2,100,100);
         frame.add(storyText); //Add to the frame
         
         frame.setLocation(x, y); //Set Frame Location
