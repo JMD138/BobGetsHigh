@@ -30,8 +30,7 @@ import org.json.simple.parser.ParseException;
 
 public class BobGetsHigh // implements KeyListener 
 {
-	private SubArea currentSubArea;
-	private SuperArea currentSuperArea;
+	private Location currentLocation;
     private ArrayList<String> inventory;
     private int sobrietyLevel = 100;
     private JFrame frame;
@@ -137,25 +136,22 @@ public class BobGetsHigh // implements KeyListener
 	public void generateGame()
 	{
 		sobrietyLevel = 100;
-		SuperArea superA1, superA2, superA3;
-		superA1 = new SuperArea(0, "Bob Gets High, Part 1", generateSubAreas(1));
-		superA2 = new SuperArea(1, "Bob Gets High, Part 2", generateSubAreas(2));
-		superA3 = new SuperArea(2, "Bob Gets High, Part 3", generateSubAreas(3));
+		generateLocations();
 	}
 		
-	public ArrayList<SubArea> generateSubAreas(int n)
+	public ArrayList<Location> generateLocations()
 	{
-		SubArea subA1, subA2, subA3;
+		Location location1, location2, location3;
 		
-		// TO ADD: switch block to create the SubAreas necessary for the specific SuperArea (identified by int n)
-		subA1 = new SubArea(0, "Inside the Apartment", generateEvents(1));
-		subA2 = new SubArea(1, "Outside the Apartment", generateEvents(2));
-		subA3 = new SubArea(2, "At the Frat House", generateEvents(3));
+		// TO ADD: switch block to create the events necessary for the specific locations
+		location1 = new Location(0, "Inside the Apartment", generateEvents(1));
+		location2 = new Location(1, "Outside the Apartment", generateEvents(2));
+		location3 = new Location(2, "At the Frat House", generateEvents(3));
 		
-		ArrayList<SubArea> s = new ArrayList<SubArea>();
-		s.add(subA1);
-		s.add(subA2);
-		s.add(subA3);
+		ArrayList<Location> s = new ArrayList<Location>();
+		s.add(location1);
+		s.add(location2);
+		s.add(location3);
 		
 		return s;
 	}

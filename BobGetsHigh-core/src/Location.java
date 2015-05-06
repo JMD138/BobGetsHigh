@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
-public class SubArea
+public class Location
 {
 	int id;
 	String name;
 	ArrayList<Event> events;
 	
-	public SubArea(int i, String n, ArrayList<Event> e)
+	public Location(int i, String n, ArrayList<Event> e)
 	{
 		id = i;
 		name = n;
