@@ -14,13 +14,13 @@ public class Location
 	}
 	
 	// getter for SubArea Id
-	public int getSubAreaId()
+	public int getLocationId()
 	{
 		return id;
 	}
 	
 	// getter for SubArea name
-	public String getSubAreaName()
+	public String getLocationName()
 	{
 		return name;
 	}

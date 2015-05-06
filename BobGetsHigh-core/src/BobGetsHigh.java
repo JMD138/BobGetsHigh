@@ -31,7 +31,7 @@ import org.json.simple.parser.ParseException;
 public class BobGetsHigh // implements KeyListener 
 {
 	private Location currentLocation;
-    private ArrayList<String> inventory;
+    private ArrayList<Event> events;
     private int sobrietyLevel = 100;
     private JFrame frame;
     private JLabel sobrietyMeter;
@@ -135,16 +135,19 @@ public class BobGetsHigh // implements KeyListener
 	public void generateGame()
 	{
 		sobrietyLevel = 100;
+		generateEvents();
 		generateLocations();
 	}
 		
 	public ArrayList<Location> generateLocations()
 	{
+		
 		Location location1, location2, location3, location4, location5, 
 		location6, location7, location8, location9, location10;
 		
-		// TO ADD: switch block to create the events necessary for the specific locations
-		location1 = new Location(1, "Inside the Apartment", generateEvents(1));
+		// TO ADD: switch block to create the events necessary
+		// for the specific locations
+		location1 = new Location(1, "Inside the Apartment", /*[events.get(0), events.get(1), events.get(2)]*/null);
 		location2 = new Location(2, "Outside the Apartment", null);
 		location3 = new Location(3, "Frat House", null);
 		location4 = new Location(4, "Class", null);
@@ -170,7 +173,7 @@ public class BobGetsHigh // implements KeyListener
 		return s;
 	}
 		
-	public ArrayList<Event> generateEvents(int n)
+	public void generateEvents()
 	{
 		ArrayList<Event> e = new ArrayList<Event>();
 			JSONParser parser = new JSONParser();
@@ -201,7 +204,7 @@ public class BobGetsHigh // implements KeyListener
 			    e.add(new Event(eventId, eventText, options, optionResults, sobrietyResults));
 			  }
 		currentEvent = e.get(0);
-		return e;
+		events = e;
 	}
 
 	
