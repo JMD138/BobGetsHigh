@@ -187,7 +187,6 @@ public class BobGetsHigh // implements KeyListener
 			    e.add(new Event(eventId, eventText, options, optionResults, sobrietyResults));
 			  }
 		currentEvent = e.get(0);
-		System.out.println(e);
 		return e;
 	}
 
