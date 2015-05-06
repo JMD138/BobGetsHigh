@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.awt.*;
+import java.awt.GraphicsDevice;
 import java.awt.event.*;
 import java.awt.image.*;
 import java.awt.event.ActionEvent;
@@ -13,6 +14,7 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.*;
 
+import java.lang.reflect.Method;
 import java.net.*;
 
 import javax.imageio.*;
@@ -25,8 +27,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
-
 
 public class BobGetsHigh // implements KeyListener 
 {
@@ -83,13 +83,17 @@ public class BobGetsHigh // implements KeyListener
         storyText.setWrapStyleWord(true);
         storyText.setEditable(false);
         storyText.setBounds(frame.getWidth()/2,frame.getHeight()/2,100,100);
-        frame.add(storyText); //Add to the frame
+       
         
+        
+        frame.add(storyText); //Add to the frame
         frame.setLocation(x, y); //Set Frame Location
         frame.setResizable(false); //Frame is not resizable
         frame.setUndecorated(true);  //No decoration for the frame
+        frame.setAlwaysOnTop(true);
         frame.setVisible(true); //Make visible
-		
+     
+        
         // create an 'exit' button
 		JButton exitButton = new JButton("X");
 		exitButton.setVerticalTextPosition(AbstractButton.CENTER);
@@ -133,8 +137,7 @@ public class BobGetsHigh // implements KeyListener
 		button2X = (int)((frame.getWidth()/3)*2-(BUTTON_WIDTH/2));
 	}
 	
-        
-	
+       
 
 	public void generateGame()
 	{
