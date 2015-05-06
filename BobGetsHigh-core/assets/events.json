@@ -1,16 +1,56 @@
 [
   {
-    "eventId": "0",
-    "eventText": "Dr. Gourd says: \"Do you want to do some Drugs?\"",
-    "options": "Do Drugs,Dont Do Drugs",
-    "optionResults": "You Lose,You Win",
-    "sobrietyResults": "-100,0"
+    "eventText": "You are in your apartment when your frat guy roomate, Greg, walks in. \"Hey man, Delta Delta is having a bake sale for the pet shelter. I've never made brownies or cookies before. Will you try one?\" You really don't want either, but don’t want to appear to be rude. So, what will it be? Brownie or Cookie?",
+    "options": "Take the Brownie.,Take the Cookie.",
+    "optionResults": "Turns out it was a pot brownie, sucks for you.,Turns out it was a pot cookie, sucks for you.",
+    "sobrietyResults": "-10,-10"
   },
   {
-    "eventId": "1",
-    "eventText": "Text 2",
-    "options": "Do Drugs,Dont Do Drugs",
-    "optionResults": "You Lose,You Win",
-    "sobrietyResults": "-100,0"
+    "eventText": "Oh shit. You walk into the classroom. Everyone is sitting furiously reading notes and pulling out scantrons. You forgot there was a test. Your friend Alex sees the panic in your eyes and motions you over. \"Dude, I've got some adderall. Take one of these and you are guaranteed to pass.\"",
+    "options": "Take adderall.,Don't take the adderall. You are messed up enough.",
+    "optionResults": "You finish the test. With a B . Go you!,You get a passable C-. Just don’t tell mom.",
+    "sobrietyResults": "-10,5"
+  },
+  {
+    "eventText": "You get to the Cafeteria. All they have is a suspicous concotion of something clealry mislabeled as 'meatloaf'.  The last time you went home, your mom gave you some vitamin supplements because \"you look like you've lost weight.\" Take vitamin supplement or risk the vegetables and 'meatloaf.'",
+    "options": "Eat rather unsatisfying vegetables and 'meatloaf',Take the vitamin supplement.",
+    "optionResults": "Well it didn't taste too bad I guess….,Umm. That wasn't a vitamin supplement. Mom accidently gave you her valium.",
+    "sobrietyResults": "10,-15"
+  },
+  {
+    "eventText": "You have arrived at the gym. You open up an empty locker and a pill bottle falls out. After inspecting the label you disocver the contents appear to be steroids. You have been looking pretty small lately, should you take them?",
+    "options": "Bulk up the natural way.,Take steroids.",
+    "optionResults": "Nah bro, lets do some cardio.,Dude. Seriously? You had a tiny dick to begin with. You really aren't helping yourself.",
+    "sobrietyResults": "10,-15"
+  },
+  {
+    "eventText": "Your roomate invites you to a frat party. You decide to go. You arrive at the party and everyone is doing Ecstasy. Join in? or drive to Waffle House with the only other sober guy there?",
+    "options": "Well your life is pretty boring. Do Ecstasy! Live a little.,Idk… the reputaiton of Waffle House food has a lot to be desired….",
+    "optionResults": "I love all you guys sooooo much!!,I'm going to pretend this is real bacon…. Or try too. Who cares. It tastes good.",
+    "sobrietyResults": "-15,10"
+  },
+  {
+    "eventText": "You're going to the last football game of the season. You don’t actually know the rules though, you just go for the above average stadium food. While walking back to your seat, two guys motion to you from under the bleachers. \"Hey man, want to do some cocaine?\"",
+    "options": "One crack cocaine please!,Ummm no. I don't like nosebleeds.",
+    "optionResults": "Ugh... My nose hurts.,My team sports harder than your sports team!",
+    "sobrietyResults": "-20,10"
+  },
+  {
+    "eventText": "Oh no! Your check engine light is on. You head to the Garage to get it checked out. The sketchy workmen pull out some needles, and they sure as hell aren't to inflate your tires. \"Want some heorin? We've got extra!\"",
+    "options": "I have trypanophobia.,Y.O.L.O.",
+    "optionResults": "*drives off safely into the majestic sunset*,*wake up hours later with a stolen car*",
+    "sobrietyResults": "25,-25"
+  },
+  {
+    "eventText": "Some friends from CSC are going ot the bar to celebrate the completetion of the video game project. An older guy at the bar offers to buy you a round. Do you accept?",
+    "options": "Nah. Dude looks sketch,Bottoms up!",
+    "optionResults": "Dance the night away with your drunken friends,You got roofied!",
+    "sobrietyResults": "10,-10"
+  },
+  {
+    "eventText": "t's time for the Engineering and Science Ball, and you and your friends couldn't get dates, so you've decided to go to the mall instead. On the way there the driver pulls out a blunt and says \"Guys, one word. HOTBOX.\"",
+    "options": "Nah. Weed smells funny.,JUST BLAZE.",
+    "optionResults": "You sit in the dank smell. The only one not stoned.,Yeah man. 4/20",
+    "sobrietyResults": "10,-10"
   }
 ]
