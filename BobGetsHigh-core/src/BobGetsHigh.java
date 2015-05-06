@@ -59,7 +59,6 @@ public class BobGetsHigh // implements KeyListener
 		generateGame();
 		makeFrame();
 		makeButton(currentEvent.getOptions(0),currentEvent.getOptions(1));
-		
 	}
 	
 	public void makeFrame()
@@ -141,17 +140,32 @@ public class BobGetsHigh // implements KeyListener
 		
 	public ArrayList<Location> generateLocations()
 	{
-		Location location1, location2, location3;
+		Location location1, location2, location3, location4, location5, 
+		location6, location7, location8, location9, location10;
 		
 		// TO ADD: switch block to create the events necessary for the specific locations
-		location1 = new Location(0, "Inside the Apartment", generateEvents(1));
-		location2 = new Location(1, "Outside the Apartment", generateEvents(2));
-		location3 = new Location(2, "At the Frat House", generateEvents(3));
+		location1 = new Location(1, "Inside the Apartment", generateEvents(1));
+		location2 = new Location(2, "Outside the Apartment", null);
+		location3 = new Location(3, "Frat House", null);
+		location4 = new Location(4, "Class", null);
+		location5 = new Location(5, "Cafeteria", null);
+		location6 = new Location(6, "Gym", null);
+		location7 = new Location(7, "Stadium", null);
+		location8 = new Location(8, "Garage", null);
+		location9 = new Location(9, "Bar", null);
+		location10 = new Location(10, "Car", null);
 		
 		ArrayList<Location> s = new ArrayList<Location>();
 		s.add(location1);
 		s.add(location2);
 		s.add(location3);
+		s.add(location4);
+		s.add(location5);
+		s.add(location6);
+		s.add(location7);
+		s.add(location8);
+		s.add(location9);
+		s.add(location10);
 		
 		return s;
 	}
