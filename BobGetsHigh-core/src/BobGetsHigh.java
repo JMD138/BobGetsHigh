@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.awt.*;
-import java.awt.GraphicsDevice;
 import java.awt.event.*;
 import java.awt.image.*;
 import java.awt.event.ActionEvent;
@@ -45,6 +44,7 @@ public class BobGetsHigh // implements KeyListener
     private static final int BUTTON_HEIGHT = 40; 
     private int buttonY;
     private int button1X;
+    private static String OS = System.getProperty("os.name").toLowerCase();
     
 //    private JTextArea backgroundPane;
 //    private Color backgroundColor;
@@ -86,31 +86,28 @@ public class BobGetsHigh // implements KeyListener
         frame.setAlwaysOnTop(true);
         frame.setUndecorated(false);
         frame.setVisible(true); //Make visible
-        myDevice.setFullScreenWindow(frame);
+
+        
+        
+        if(myDevice.isFullScreenSupported()){
+        	myDevice.setFullScreenWindow(frame);
+        }else{
+        	myDevice.setFullScreenWindow(null);
+        }
 
         
         //Create a style story text
         storyText = new JTextArea(currentEvent.getEventText()); //Set text equal to current event text
         storyText.setForeground(Color.WHITE); //Set text color
-        storyText.setBackground(Color.MAGENTA);
+        storyText.setBackground(Color.BLACK);
         storyText.setLineWrap(true);
         storyText.setWrapStyleWord(true);
         storyText.setEditable(false);
-        storyText.setBounds(frame.getWidth()/2,frame.getHeight()/2,100,100);
+        storyText.setFont(new Font("Arial", Font.BOLD, 16));
+        storyText.setBounds(frame.getWidth()/4,frame.getHeight()/8*3,frame.getWidth()/2,frame.getHeight()/4);
         frame.add(storyText); //Add to the frame
-
         
-        // create an 'exit' button
-		JButton exitButton = new JButton("X");
-		exitButton.setVerticalTextPosition(AbstractButton.CENTER);
-		exitButton.setHorizontalTextPosition(AbstractButton.LEADING);
-		exitButton.setBounds(0, 25, 50, 30);
-		    
-		// create a new input in the InputMap with a paired Action in the ActionMap
-		// so that when the ESCAPE key is pressed, the program ends. If we don't want
-		// an exit button, this code can be transferred to another JComponent (that
-		// might require some slight alteration).
-		
+        //Quit Event
 		Action exit = new AbstractAction()
 		{
 			public void actionPerformed (ActionEvent e)
@@ -118,21 +115,35 @@ public class BobGetsHigh // implements KeyListener
 				System.exit(0);
         	}
 		};
+		
+		//Toggle Windowed and Fullscreen Event
+		Action windowed = new AbstractAction()
+		{
+			public void actionPerformed (ActionEvent e)
+			{
+				if(myDevice.getFullScreenWindow()==frame){
+					myDevice.setFullScreenWindow(null);
+				}else{
+					myDevice.setFullScreenWindow(frame);
+				}
+				frame.repaint();
+        	}
+		};
 				
-		exitButton.addActionListener(exit);
+		//Toggle Window Mode on ESC
+		storyText.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "esc");
+		storyText.getActionMap().put("esc", windowed);
 		
-		exitButton.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "quit");
-		exitButton.getActionMap().put("quit", exit);
-
-		
-		frame.add(exitButton);
+		//Quit on Q
+		storyText.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_Q, 0), "quit");
+		storyText.getActionMap().put("quit", exit);
 		frame.repaint();
 		
 		sobrietyMeter = new JLabel("Sobriety Level: " + sobrietyLevel + "%");
 		sobrietyMeter.setVerticalTextPosition(AbstractButton.CENTER);
 		sobrietyMeter.setHorizontalTextPosition(AbstractButton.LEADING);
 		sobrietyMeter.setFont(new Font("Arial", 1, 18));
-		sobrietyMeter.setBounds(frame.getWidth() - 200, 25, 200, 30);
+		sobrietyMeter.setBounds(frame.getWidth() - 200, 0, 200, 30);
 		sobrietyMeter.setForeground(Color.WHITE);
 		
 		frame.add(sobrietyMeter);
@@ -219,16 +230,6 @@ public class BobGetsHigh // implements KeyListener
 		currentEvent = e.get(0);
 		events = e;
 	}
-
-	
-	private void closeWindow(){
-		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-		System.exit(0);
-	}
-	
-	private void windowedMode(){
-		frame.setUndecorated(false);
-	}
 	
 
 	public void updateSobrietyLevel(int num)
@@ -313,4 +314,29 @@ public class BobGetsHigh // implements KeyListener
 						+ " Press ESC to exit");
 		frame.repaint();
 	}
+	
+	public static boolean isWindows() {
+		 
+		return (OS.indexOf("win") >= 0);
+ 
+	}
+ 
+	public static boolean isMac() {
+ 
+		return (OS.indexOf("mac") >= 0);
+ 
+	}
+ 
+	public static boolean isUnix() {
+ 
+		return (OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") > 0 );
+ 
+	}
+ 
+	public static boolean isSolaris() {
+ 
+		return (OS.indexOf("sunos") >= 0);
+ 
+	}
+ 
 }
