@@ -257,8 +257,6 @@ public class BobGetsHigh // implements KeyListener
 
 	public void makeButton(String text1, String text2)
 	{
-		//ImageIcon leftButtonIcon = createImageIcon("images/right.gif");
-		//ImageIcon rightButtonIcon = createImageIcon("images/right.gif");
 		
 		JButton b1 = new JButton(text1);
 		b1.setVerticalTextPosition(AbstractButton.CENTER);
@@ -305,14 +303,6 @@ public class BobGetsHigh // implements KeyListener
 		frame.repaint();
 	}
 
-	/*public static ImageIcon createImageIcon(String path) {
-		URL imgURL = JButton.class.getResource(path);
-		if (imgURL != null) {
-			return new ImageIcon(imgURL);
-		} else {
-			System.err.println("Couldn't find image in system: " + path);
-			return null;
-		}*/	
 	public void gameOver()
 	{
 		updateStoryText("You got arrested. You must have been REALLY high..."
