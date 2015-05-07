@@ -28,6 +28,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+
 public class BobGetsHigh // implements KeyListener 
 {
 	private Location currentLocation;
@@ -63,7 +64,11 @@ public class BobGetsHigh // implements KeyListener
 	
 	public void makeFrame()
 	{
+		
 		frame = new JFrame("Bob Gets High");
+		GraphicsEnvironment ge = GraphicsEnvironment
+                .getLocalGraphicsEnvironment();
+        GraphicsDevice myDevice = ge.getDefaultScreenDevice();
 		frame.setTitle("Bob Gets High");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         content = (JPanel)frame.getContentPane();
@@ -74,6 +79,15 @@ public class BobGetsHigh // implements KeyListener
         int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2); // X center
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);  //Y center
         frame.getContentPane().setBackground(Color.BLACK);
+      
+        
+        frame.setLocation(x, y); //Set Frame Location
+        frame.setResizable(false); //Frame is not resizable
+        frame.setAlwaysOnTop(true);
+        frame.setUndecorated(false);
+        frame.setVisible(true); //Make visible
+        myDevice.setFullScreenWindow(frame);
+
         
         //Create a style story text
         storyText = new JTextArea(currentEvent.getEventText()); //Set text equal to current event text
@@ -83,16 +97,8 @@ public class BobGetsHigh // implements KeyListener
         storyText.setWrapStyleWord(true);
         storyText.setEditable(false);
         storyText.setBounds(frame.getWidth()/2,frame.getHeight()/2,100,100);
-       
-        
-        
         frame.add(storyText); //Add to the frame
-        frame.setLocation(x, y); //Set Frame Location
-        frame.setResizable(false); //Frame is not resizable
-        frame.setUndecorated(true);  //No decoration for the frame
-        frame.setAlwaysOnTop(true);
-        frame.setVisible(true); //Make visible
-     
+
         
         // create an 'exit' button
 		JButton exitButton = new JButton("X");
@@ -135,6 +141,7 @@ public class BobGetsHigh // implements KeyListener
 		buttonY = (int)(frame.getHeight()/4*3);
 		button1X = (int)(frame.getWidth()/3-(BUTTON_WIDTH/2));
 		button2X = (int)((frame.getWidth()/3)*2-(BUTTON_WIDTH/2));
+		
 	}
 	
        
