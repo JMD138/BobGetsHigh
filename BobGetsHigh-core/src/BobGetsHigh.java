@@ -44,6 +44,8 @@ public class BobGetsHigh // implements KeyListener
     private static final int BUTTON_HEIGHT = 40; 
     private int buttonY;
     private int button1X;
+    private JButton b1;
+    private JButton b2;
     private static String OS = System.getProperty("os.name").toLowerCase();
     
 //    private JTextArea backgroundPane;
@@ -266,16 +268,6 @@ public class BobGetsHigh // implements KeyListener
 		frame.add(b1);
 		frame.repaint();
 		
-		b1.addActionListener(new ActionListener() {          
-		    public void actionPerformed(ActionEvent e) 
-		    {
-		    	//result.setText(currentEvent.getOptionResults(0));
-		    	updateSobrietyLevel(currentEvent.getSobrietyResults(0));
-		    	updateStoryText(currentEvent.getOptionResults(0));
-
-		    }
-		});
-	
 		JButton b2 = new JButton(text2);
 		b2.setVerticalTextPosition(AbstractButton.CENTER);
 		b2.setHorizontalTextPosition(AbstractButton.LEADING);
@@ -283,10 +275,23 @@ public class BobGetsHigh // implements KeyListener
 		frame.add(b2);
 		frame.repaint();
 		
+		b1.addActionListener(new ActionListener() {          
+		    public void actionPerformed(ActionEvent e) 
+		    {
+		    	frame.remove(b1);
+		    	frame.remove(b2);
+		    	updateSobrietyLevel(currentEvent.getSobrietyResults(0));
+		    	updateStoryText(currentEvent.getOptionResults(0));
+
+		    }
+		});
+	
+		
 		b2.addActionListener(new ActionListener() {          
 		    public void actionPerformed(ActionEvent e) 
 		    {
-		    	//result.setText(currentEvent.getOptionResults(1));
+		    	frame.remove(b1);
+		    	frame.remove(b2);
 		    	updateSobrietyLevel(currentEvent.getSobrietyResults(1));
 		    	updateStoryText(currentEvent.getOptionResults(1));
 		    }
