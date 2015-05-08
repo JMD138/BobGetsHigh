@@ -42,6 +42,7 @@ public class BobGetsHigh
 	private Location currentLocation;
     private Event currentEvent;
     private int button2X;
+    private int button3X;
     private static final int BUTTON_WIDTH = 350;
     private static final int BUTTON_HEIGHT = 40; 
     private int buttonY;
@@ -172,6 +173,7 @@ public class BobGetsHigh
 		buttonY = (int)(frame.getHeight()/4*3);
 		button1X = (int)(frame.getWidth()/3-(BUTTON_WIDTH/2));
 		button2X = (int)((frame.getWidth()/3)*2-(BUTTON_WIDTH/2));
+		button3X = (int)((frame.getWidth()/2)-(BUTTON_WIDTH/2));
 		
 	}
 	
@@ -309,7 +311,6 @@ public class BobGetsHigh
 		    public void actionPerformed(ActionEvent e) 
 		    {
 		    	updateButtons(0);
-
 		    }
 		});
 	
@@ -340,7 +341,14 @@ public class BobGetsHigh
 			nextButton = new JButton("Continue");
 			nextButton.setVerticalTextPosition(AbstractButton.CENTER);
 			nextButton.setHorizontalTextPosition(AbstractButton.LEADING);
-			nextButton.setBounds(button2X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
+			nextButton.setBounds(button3X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
+			
+			nextButton.addActionListener(new ActionListener() {          
+			    public void actionPerformed(ActionEvent e) 
+			    {
+			    	updateButtons(2);
+			    }
+			});
 			
 			frame.add(nextButton);
 			frame.repaint();
@@ -355,7 +363,9 @@ public class BobGetsHigh
 		}
 		if(n == 2)
 		{
+//			goToMap();
 			makeButtons();
+			frame.remove(nextButton);
 		}
 		
 	}
