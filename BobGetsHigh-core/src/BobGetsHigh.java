@@ -309,7 +309,6 @@ public class BobGetsHigh
 		    public void actionPerformed(ActionEvent e) 
 		    {
 		    	updateButtons(0);
-
 		    }
 		});
 	
@@ -342,6 +341,13 @@ public class BobGetsHigh
 			nextButton.setHorizontalTextPosition(AbstractButton.LEADING);
 			nextButton.setBounds(button2X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
 			
+			nextButton.addActionListener(new ActionListener() {          
+			    public void actionPerformed(ActionEvent e) 
+			    {
+			    	updateButtons(2);
+			    }
+			});
+			
 			frame.add(nextButton);
 			frame.repaint();
 			
@@ -355,7 +361,9 @@ public class BobGetsHigh
 		}
 		if(n == 2)
 		{
+//			goToMap();
 			makeButtons();
+			frame.remove(nextButton);
 		}
 		
 	}
