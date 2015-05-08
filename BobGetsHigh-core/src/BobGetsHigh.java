@@ -42,13 +42,15 @@ public class BobGetsHigh
 	private Location currentLocation;
     private Event currentEvent;
     private int button2X;
-    private static final int BUTTON_WIDTH = 200;
+    private int button3X;
+    private static final int BUTTON_WIDTH = 350;
     private static final int BUTTON_HEIGHT = 40; 
     private int buttonY;
     private int button1X;
     private JButton b1;
     private JButton b2;
     private JButton nextButton;
+    private JButton invisibleButton;
     private static String OS = System.getProperty("os.name").toLowerCase();
     
 //    private JTextArea backgroundPane;
@@ -171,6 +173,7 @@ public class BobGetsHigh
 		buttonY = (int)(frame.getHeight()/4*3);
 		button1X = (int)(frame.getWidth()/3-(BUTTON_WIDTH/2));
 		button2X = (int)((frame.getWidth()/3)*2-(BUTTON_WIDTH/2));
+		button3X = (int)((frame.getWidth()/2)-(BUTTON_WIDTH/2));
 		
 	}
 	
@@ -258,7 +261,7 @@ public class BobGetsHigh
 				String [] sobrietyResults = ((String) event.get("sobrietyResults")).split(",");
 			    events.add(new Event(eventText, options, optionResults, sobrietyResults));
 			  }
-		currentEvent = events.get(0);
+		currentEvent = events.get(2);
 	}
 	
 
@@ -269,6 +272,9 @@ public class BobGetsHigh
 		{
 			sobrietyMeter.setText("Sobriety Level: 0%");
 			gameOver();
+		}
+		else if(sobrietyLevel >= 100){
+			sobrietyMeter.setText("Sobriety Level: 100%");
 		}
 		else
 		{
@@ -305,7 +311,6 @@ public class BobGetsHigh
 		    public void actionPerformed(ActionEvent e) 
 		    {
 		    	updateButtons(0);
-
 		    }
 		});
 	
@@ -318,7 +323,7 @@ public class BobGetsHigh
 		});
 		
 		//Invisible Button 
-		JButton invisibleButton = new JButton();
+		invisibleButton = new JButton();
 		invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
 		invisibleButton.setVisible(false);
 		frame.add(invisibleButton);
@@ -336,14 +341,31 @@ public class BobGetsHigh
 			nextButton = new JButton("Continue");
 			nextButton.setVerticalTextPosition(AbstractButton.CENTER);
 			nextButton.setHorizontalTextPosition(AbstractButton.LEADING);
-			nextButton.setBounds(button2X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
+			nextButton.setBounds(button3X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
+			
+			nextButton.addActionListener(new ActionListener() {          
+			    public void actionPerformed(ActionEvent e) 
+			    {
+			    	updateButtons(2);
+			    }
+			});
 			
 			frame.add(nextButton);
+			frame.repaint();
+			
+			frame.remove(invisibleButton);
+			invisibleButton = new JButton();
+			invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
+			invisibleButton.setVisible(false);
+			
+			frame.add(invisibleButton);
 			frame.repaint();
 		}
 		if(n == 2)
 		{
+//			goToMap();
 			makeButtons();
+			frame.remove(nextButton);
 		}
 		
 	}
