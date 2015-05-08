@@ -42,7 +42,7 @@ public class BobGetsHigh
 	private Location currentLocation;
     private Event currentEvent;
     private int button2X;
-    private static final int BUTTON_WIDTH = 200;
+    private static final int BUTTON_WIDTH = 350;
     private static final int BUTTON_HEIGHT = 40; 
     private int buttonY;
     private int button1X;
@@ -258,7 +258,7 @@ public class BobGetsHigh
 				String [] sobrietyResults = ((String) event.get("sobrietyResults")).split(",");
 			    events.add(new Event(eventText, options, optionResults, sobrietyResults));
 			  }
-		currentEvent = events.get(1);
+		currentEvent = events.get(2);
 	}
 	
 
