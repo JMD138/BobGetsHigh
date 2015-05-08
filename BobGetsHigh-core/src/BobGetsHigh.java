@@ -259,7 +259,7 @@ public class BobGetsHigh
 				String [] sobrietyResults = ((String) event.get("sobrietyResults")).split(",");
 			    events.add(new Event(eventText, options, optionResults, sobrietyResults));
 			  }
-		currentEvent = events.get(0);
+		currentEvent = events.get(1);
 	}
 	
 
@@ -270,6 +270,9 @@ public class BobGetsHigh
 		{
 			sobrietyMeter.setText("Sobriety Level: 0%");
 			gameOver();
+		}
+		else if(sobrietyLevel >= 100){
+			sobrietyMeter.setText("Sobriety Level: 100%");
 		}
 		else
 		{
