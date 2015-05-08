@@ -29,7 +29,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 
-public class BobGetsHigh // implements KeyListener 
+public class BobGetsHigh
 {
     private ArrayList<Event> events;
     private ArrayList<Location> locations;
@@ -48,6 +48,7 @@ public class BobGetsHigh // implements KeyListener
     private int button1X;
     private JButton b1;
     private JButton b2;
+    private JButton nextButton;
     private static String OS = System.getProperty("os.name").toLowerCase();
     
 //    private JTextArea backgroundPane;
@@ -63,7 +64,7 @@ public class BobGetsHigh // implements KeyListener
 	{
 		generateGame();
 		makeFrame();
-		makeButton(currentEvent.getOptions(0),currentEvent.getOptions(1));
+		makeButtons();
 	}
 	
 	public void makeFrame()
@@ -282,10 +283,10 @@ public class BobGetsHigh // implements KeyListener
 	}
 
 
-	public void makeButton(String text1, String text2)
+	public void makeButtons()
 	{
 		
-		b1 = new JButton(text1);
+		b1 = new JButton(currentEvent.getOptions(0));
 		b1.setVerticalTextPosition(AbstractButton.CENTER);
 		b1.setHorizontalTextPosition(AbstractButton.LEADING);
 		b1.setBounds(button1X,buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
@@ -293,7 +294,7 @@ public class BobGetsHigh // implements KeyListener
 		frame.add(b1);
 		frame.repaint();
 		
-		b2 = new JButton(text2);
+		b2 = new JButton(currentEvent.getOptions(1));
 		b2.setVerticalTextPosition(AbstractButton.CENTER);
 		b2.setHorizontalTextPosition(AbstractButton.LEADING);
 		b2.setBounds(button2X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT); //int x, int y, int width, int height
@@ -303,10 +304,7 @@ public class BobGetsHigh // implements KeyListener
 		b1.addActionListener(new ActionListener() {          
 		    public void actionPerformed(ActionEvent e) 
 		    {
-		    	frame.remove(b1);
-		    	frame.remove(b2);
-		    	updateSobrietyLevel(currentEvent.getSobrietyResults(0));
-		    	updateStoryText(currentEvent.getOptionResults(0));
+		    	updateButtons(0);
 
 		    }
 		});
@@ -315,10 +313,7 @@ public class BobGetsHigh // implements KeyListener
 		b2.addActionListener(new ActionListener() {          
 		    public void actionPerformed(ActionEvent e) 
 		    {
-		    	frame.remove(b1);
-		    	frame.remove(b2);
-		    	updateSobrietyLevel(currentEvent.getSobrietyResults(1));
-		    	updateStoryText(currentEvent.getOptionResults(1));
+		    	updateButtons(1);
 		    }
 		});
 		
@@ -328,6 +323,29 @@ public class BobGetsHigh // implements KeyListener
 		invisibleButton.setVisible(false);
 		frame.add(invisibleButton);
 		frame.repaint();
+	}
+	
+	public void updateButtons(int n)
+	{
+		if (n <= 1)
+		{
+			frame.remove(b1);
+			frame.remove(b2);
+			updateSobrietyLevel(currentEvent.getSobrietyResults(n));
+			updateStoryText(currentEvent.getOptionResults(n));
+			nextButton = new JButton("Continue");
+			nextButton.setVerticalTextPosition(AbstractButton.CENTER);
+			nextButton.setHorizontalTextPosition(AbstractButton.LEADING);
+			nextButton.setBounds(button2X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
+			
+			frame.add(nextButton);
+			frame.repaint();
+		}
+		if(n == 2)
+		{
+			makeButtons();
+		}
+		
 	}
 
 	public void gameOver()
