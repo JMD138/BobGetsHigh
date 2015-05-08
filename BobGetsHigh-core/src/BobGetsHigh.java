@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.awt.*;
 import java.awt.event.*;
@@ -30,14 +31,15 @@ import org.json.simple.parser.ParseException;
 
 public class BobGetsHigh // implements KeyListener 
 {
-	private Location currentLocation;
     private ArrayList<Event> events;
+    private ArrayList<Location> locations;
     private int sobrietyLevel = 100;
     private JFrame frame;
     private JLabel sobrietyMeter;
     private JPanel content;
     private JTextArea storyText;
     private BufferedImage image;
+	private Location currentLocation;
     private Event currentEvent;
     private int button2X;
     private static final int BUTTON_WIDTH = 200;
@@ -180,43 +182,55 @@ public class BobGetsHigh // implements KeyListener
 		generateLocations();
 	}
 		
-	public ArrayList<Location> generateLocations()
+	public void generateLocations()
 	{
 		
-		Location location1, location2, location3, location4, location5, 
-		location6, location7, location8, location9, location10;
+		Location location0, location1, location2, location3, location4, location5, 
+		location6, location7, location8;
 		
 		// TO ADD: switch block to create the events necessary
 		// for the specific locations
-		location1 = new Location(1, "Inside the Apartment", /*[events.get(0), events.get(1), events.get(2)]*/null);
-		location2 = new Location(2, "Outside the Apartment", null);
-		location3 = new Location(3, "Frat House", null);
-		location4 = new Location(4, "Class", null);
-		location5 = new Location(5, "Cafeteria", null);
-		location6 = new Location(6, "Gym", null);
-		location7 = new Location(7, "Stadium", null);
-		location8 = new Location(8, "Garage", null);
-		location9 = new Location(9, "Bar", null);
-		location10 = new Location(10, "Car", null);
+		location0 = new Location("Your Apartment", new ArrayList<Event>(
+						Arrays.asList(events.get(0))));
 		
-		ArrayList<Location> s = new ArrayList<Location>();
-		s.add(location1);
-		s.add(location2);
-		s.add(location3);
-		s.add(location4);
-		s.add(location5);
-		s.add(location6);
-		s.add(location7);
-		s.add(location8);
-		s.add(location9);
-		s.add(location10);
+		location1 = new Location("The Frat House", new ArrayList<Event>(
+						Arrays.asList(events.get(4))));
 		
-		return s;
+		location2 = new Location("Class", new ArrayList<Event>(
+						Arrays.asList(events.get(1))));
+		
+		location3 = new Location("The Cafeteria", new ArrayList<Event>(
+						Arrays.asList(events.get(2))));
+		
+		location4 = new Location("The Gym", new ArrayList<Event>(
+						Arrays.asList(events.get(3))));
+		
+		location5 = new Location("The Stadium", new ArrayList<Event>(
+						Arrays.asList(events.get(5))));
+		
+		location6 = new Location("The Garage", new ArrayList<Event>(
+						Arrays.asList(events.get(6))));
+		
+		location7 = new Location("The Bar", new ArrayList<Event>(
+						Arrays.asList(events.get(7))));
+		
+		location8 = new Location("The Car", new ArrayList<Event>(
+						Arrays.asList(events.get(8))));
+		
+		locations = new ArrayList<Location>
+		(
+			Arrays.asList
+			(
+				location0, location1, location2, location3, location4, location5,
+				location6, location7, location8
+			)
+		);
+		currentLocation = locations.get(0);
 	}
 		
 	public void generateEvents()
 	{
-		ArrayList<Event> e = new ArrayList<Event>();
+		events = new ArrayList<Event>();
 			JSONParser parser = new JSONParser();
 			 JSONArray a = null;
 			try {
@@ -241,10 +255,9 @@ public class BobGetsHigh // implements KeyListener
 			    String [] options = ((String) event.get("options")).split(",");
 				String [] optionResults = ((String) event.get("optionResults")).split(",");
 				String [] sobrietyResults = ((String) event.get("sobrietyResults")).split(",");
-			    e.add(new Event(eventText, options, optionResults, sobrietyResults));
+			    events.add(new Event(eventText, options, optionResults, sobrietyResults));
 			  }
-		currentEvent = e.get(0);
-		events = e;
+		currentEvent = events.get(0);
 	}
 	
 
