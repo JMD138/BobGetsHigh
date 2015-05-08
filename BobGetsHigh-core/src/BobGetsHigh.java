@@ -49,6 +49,7 @@ public class BobGetsHigh
     private JButton b1;
     private JButton b2;
     private JButton nextButton;
+    private JButton invisibleButton;
     private static String OS = System.getProperty("os.name").toLowerCase();
     
 //    private JTextArea backgroundPane;
@@ -318,7 +319,7 @@ public class BobGetsHigh
 		});
 		
 		//Invisible Button 
-		JButton invisibleButton = new JButton();
+		invisibleButton = new JButton();
 		invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
 		invisibleButton.setVisible(false);
 		frame.add(invisibleButton);
@@ -339,6 +340,14 @@ public class BobGetsHigh
 			nextButton.setBounds(button2X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
 			
 			frame.add(nextButton);
+			frame.repaint();
+			
+			frame.remove(invisibleButton);
+			invisibleButton = new JButton();
+			invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
+			invisibleButton.setVisible(false);
+			
+			frame.add(invisibleButton);
 			frame.repaint();
 		}
 		if(n == 2)
