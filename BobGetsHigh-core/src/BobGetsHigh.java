@@ -367,6 +367,9 @@ public class BobGetsHigh
 			makeButtons();
 			frame.remove(nextButton);
 		}
+	}
+	public void generateMap()
+	{
 		
 	}
 
