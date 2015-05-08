@@ -87,16 +87,18 @@ public class BobGetsHigh // implements KeyListener
         frame.setResizable(false); //Frame is not resizable
         frame.setAlwaysOnTop(true);
         frame.setUndecorated(false);
-        frame.setVisible(true); //Make visible
+        frame.setVisible(false); //Make visible
 
         
         
-        if(myDevice.isFullScreenSupported()){
+        if(myDevice.isFullScreenSupported())
+        {
+        	frame.dispose();
+        	frame.setUndecorated(true);
         	myDevice.setFullScreenWindow(frame);
-        }else{
-        	myDevice.setFullScreenWindow(null);
         }
-
+        
+        frame.setVisible(true);
         
         //Create a style story text
         storyText = new JTextArea(currentEvent.getEventText()); //Set text equal to current event text
@@ -123,11 +125,23 @@ public class BobGetsHigh // implements KeyListener
 		{
 			public void actionPerformed (ActionEvent e)
 			{
-				if(myDevice.getFullScreenWindow()==frame){
-					myDevice.setFullScreenWindow(null);
-				}else{
+				frame.setVisible(false);
+				if(myDevice.getFullScreenWindow() == frame)
+				{
+					frame.setAlwaysOnTop(false);	// this line NEEDS TO BE before frame.dispose();
+					frame.dispose();
+					frame.setLocationRelativeTo(null);
+		        	frame.setUndecorated(false);
+					
+				}
+				else
+				{
+					frame.dispose();
+		        	frame.setUndecorated(true);
+		        	frame.setAlwaysOnTop(true);
 					myDevice.setFullScreenWindow(frame);
 				}
+				frame.setVisible(true);
 				frame.repaint();
         	}
 		};
@@ -258,7 +272,7 @@ public class BobGetsHigh // implements KeyListener
 	public void makeButton(String text1, String text2)
 	{
 		
-		JButton b1 = new JButton(text1);
+		b1 = new JButton(text1);
 		b1.setVerticalTextPosition(AbstractButton.CENTER);
 		b1.setHorizontalTextPosition(AbstractButton.LEADING);
 		b1.setBounds(button1X,buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
@@ -266,7 +280,7 @@ public class BobGetsHigh // implements KeyListener
 		frame.add(b1);
 		frame.repaint();
 		
-		JButton b2 = new JButton(text2);
+		b2 = new JButton(text2);
 		b2.setVerticalTextPosition(AbstractButton.CENTER);
 		b2.setHorizontalTextPosition(AbstractButton.LEADING);
 		b2.setBounds(button2X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT); //int x, int y, int width, int height
