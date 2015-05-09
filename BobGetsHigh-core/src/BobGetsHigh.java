@@ -317,7 +317,7 @@ public class BobGetsHigh
 	public void updateSobrietyLevel(int num)
 	{
 		sobrietyLevel += num;
-		if (sobrietyLevel <= 0)
+		if (gameOver())
 		{
 			sobrietyMeter.setText("Sobriety Level: 0%");
 			gameOver();
@@ -328,7 +328,6 @@ public class BobGetsHigh
 		else
 		{
 			sobrietyMeter.setText("Sobriety Level: " + sobrietyLevel + "%");
-			updateStoryText("This is a test of the emergency broadcast system");
 			frame.repaint();
 		}
 	}
@@ -343,22 +342,27 @@ public class BobGetsHigh
 		{
 			frame.remove(b1);
 			frame.remove(b2);
-			updateSobrietyLevel(currentEvent.getSobrietyResults(n));
+		
 			updateStoryText(currentEvent.getOptionResults(n));
-			nextButton = new JButton("Continue");
-			nextButton.setVerticalTextPosition(AbstractButton.CENTER);
-			nextButton.setHorizontalTextPosition(AbstractButton.LEADING);
-			nextButton.setBounds(button3X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
+			updateSobrietyLevel(currentEvent.getSobrietyResults(n));
 			
-			nextButton.addActionListener(new ActionListener() {          
-			    public void actionPerformed(ActionEvent e) 
-			    {
-			    	updateButtons(2);
-			    }
-			});
+			if(!gameOver())
+			{
+				nextButton = new JButton("Continue");
+				nextButton.setVerticalTextPosition(AbstractButton.CENTER);
+				nextButton.setHorizontalTextPosition(AbstractButton.LEADING);
+				nextButton.setBounds(button3X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
 			
-			frame.add(nextButton);
-			frame.repaint();
+				nextButton.addActionListener(new ActionListener() {          
+			    	public void actionPerformed(ActionEvent e) 
+			    	{
+			    		updateButtons(2);
+			    	}
+				});
+			
+				frame.add(nextButton);
+				frame.repaint();
+			}
 			
 			frame.remove(invisibleButton);
 			invisibleButton = new JButton();
@@ -378,11 +382,16 @@ public class BobGetsHigh
 
 	
 
-	public void gameOver()
+	public boolean gameOver()
 	{
-		updateStoryText("You got arrested. You must have been REALLY high..."
-						+ " Press ESC to exit");
-		frame.repaint();
+		if(sobrietyLevel <= 0)
+		{
+			updateStoryText("You got arrested. You must have been REALLY high..."
+						+ " Press 'Q' to exit");
+			frame.repaint();
+			return true;
+		}
+		return false;
 	}
 	
 	
