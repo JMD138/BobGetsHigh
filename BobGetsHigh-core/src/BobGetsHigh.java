@@ -176,16 +176,58 @@ public class BobGetsHigh
 		button3X = (int)((frame.getWidth()/2)-(BUTTON_WIDTH/2));
 		
 	}
+    
+	public void makeButtons()
+	{
+		
+		b1 = new JButton(currentEvent.getOptions(0));
+		b1.setVerticalTextPosition(AbstractButton.CENTER);
+		b1.setHorizontalTextPosition(AbstractButton.LEADING);
+		b1.setBounds(button1X,buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
+		
+		frame.add(b1);
+		frame.repaint();
+		
+		b2 = new JButton(currentEvent.getOptions(1));
+		b2.setVerticalTextPosition(AbstractButton.CENTER);
+		b2.setHorizontalTextPosition(AbstractButton.LEADING);
+		b2.setBounds(button2X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT); //int x, int y, int width, int height
+		frame.add(b2);
+		frame.repaint();
+		
+		b1.addActionListener(new ActionListener() {          
+		    public void actionPerformed(ActionEvent e) 
+		    {
+		    	updateButtons(0);
+		    }
+		});
 	
-       
+		
+		b2.addActionListener(new ActionListener() {          
+		    public void actionPerformed(ActionEvent e) 
+		    {
+		    	updateButtons(1);
+		    }
+		});
+		
+		//Invisible Button 
+		invisibleButton = new JButton();
+		invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
+		invisibleButton.setVisible(false);
+		frame.add(invisibleButton);
+		frame.repaint();
+	}   
 
+	
+	
 	public void generateGame()
 	{
 		sobrietyLevel = 100;
 		generateEvents();
 		generateLocations();
 	}
-		
+
+	
 	public void generateLocations()
 	{
 		
@@ -264,7 +306,14 @@ public class BobGetsHigh
 		currentEvent = events.get(2);
 	}
 	
+			
+	public void generateMap()
+	{
+		
+	}
 
+	
+	
 	public void updateSobrietyLevel(int num)
 	{
 		sobrietyLevel += num;
@@ -288,48 +337,6 @@ public class BobGetsHigh
 		storyText.setText(text);
 	}
 
-
-	public void makeButtons()
-	{
-		
-		b1 = new JButton(currentEvent.getOptions(0));
-		b1.setVerticalTextPosition(AbstractButton.CENTER);
-		b1.setHorizontalTextPosition(AbstractButton.LEADING);
-		b1.setBounds(button1X,buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
-		
-		frame.add(b1);
-		frame.repaint();
-		
-		b2 = new JButton(currentEvent.getOptions(1));
-		b2.setVerticalTextPosition(AbstractButton.CENTER);
-		b2.setHorizontalTextPosition(AbstractButton.LEADING);
-		b2.setBounds(button2X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT); //int x, int y, int width, int height
-		frame.add(b2);
-		frame.repaint();
-		
-		b1.addActionListener(new ActionListener() {          
-		    public void actionPerformed(ActionEvent e) 
-		    {
-		    	updateButtons(0);
-		    }
-		});
-	
-		
-		b2.addActionListener(new ActionListener() {          
-		    public void actionPerformed(ActionEvent e) 
-		    {
-		    	updateButtons(1);
-		    }
-		});
-		
-		//Invisible Button 
-		invisibleButton = new JButton();
-		invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
-		invisibleButton.setVisible(false);
-		frame.add(invisibleButton);
-		frame.repaint();
-	}
-	
 	public void updateButtons(int n)
 	{
 		if (n <= 1)
@@ -368,10 +375,8 @@ public class BobGetsHigh
 			frame.remove(nextButton);
 		}
 	}
-	public void generateMap()
-	{
-		
-	}
+
+	
 
 	public void gameOver()
 	{
@@ -379,6 +384,8 @@ public class BobGetsHigh
 						+ " Press ESC to exit");
 		frame.repaint();
 	}
+	
+	
 	
 	public static boolean isWindows() {
 		 
