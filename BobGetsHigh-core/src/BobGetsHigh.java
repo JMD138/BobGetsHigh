@@ -231,8 +231,8 @@ public class BobGetsHigh
 	public void generateLocations()
 	{
 		
-		Location location0, location1, location2, location3, location4, location5, 
-		location6, location7, location8;
+		Location location0, location1, location2, location3, 
+		location4, location5, location6, location7, location8;
 		
 		// TO ADD: switch block to create the events necessary
 		// for the specific locations
@@ -267,8 +267,8 @@ public class BobGetsHigh
 		(
 			Arrays.asList
 			(
-				location0, location1, location2, location3, location4, location5,
-				location6, location7, location8
+				location0, location1, location2, location3, location4, 
+				location5, location6, location7, location8
 			)
 		);
 		currentLocation = locations.get(0);
