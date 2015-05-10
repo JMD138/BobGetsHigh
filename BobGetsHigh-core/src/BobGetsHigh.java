@@ -66,6 +66,7 @@ public class BobGetsHigh
 	{
 		generateGame();
 		makeFrame();
+		setDisplay("Event");
 	}
 	
 	public void makeFrame()
@@ -105,7 +106,7 @@ public class BobGetsHigh
         frame.setVisible(true);
         
         //Create a style story text
-        storyText = new JTextArea(currentEvent.getEventText()); //Set text equal to current event text
+        storyText = new JTextArea(""); //Set text equal to current event text
         storyText.setForeground(Color.WHITE); //Set text color
         storyText.setBackground(Color.BLACK);
         storyText.setLineWrap(true);
@@ -368,6 +369,7 @@ public class BobGetsHigh
 		{
 			setDisplay("Map");
 			frame.remove(nextButton);
+			frame.repaint();
 		}
 	}
 
@@ -392,10 +394,11 @@ public class BobGetsHigh
 		if(mode == "Event")
 		{
 			//Make buttons
+			updateStoryText(currentEvent.getEventText());
 			makeButtons();
-			updateStoryText("Test");
 		}
 		else if(mode == "Map"){
+			updateStoryText("");
 			
 		}
 		
