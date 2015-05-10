@@ -439,10 +439,10 @@ public class BobGetsHigh
 	        updateStoryText(currentEvent.getEventText());
 	        //Make the buttons
 			makeButtons();
+			sobrietyMeter.setBounds(20, 15, 200, 30);
 			frame.repaint();
 		}
 		else if(mode == "Map"){
-			sobrietyMeter.setBounds(20, 15, 200, 30);
 			//Clear story Text
 			updateStoryText("");
 			//Remove Text
@@ -451,6 +451,7 @@ public class BobGetsHigh
 			makeMap();
 			//Add back text
 			frame.add(storyText);
+			sobrietyMeter.setBounds(20, 15, 200, 30);
 			frame.repaint();
 		}
 		
