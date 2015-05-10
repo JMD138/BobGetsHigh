@@ -369,6 +369,12 @@ public class BobGetsHigh
 		{
 			setDisplay("Map");
 			frame.remove(nextButton);
+			frame.remove(invisibleButton);
+			invisibleButton = new JButton();
+			invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
+			invisibleButton.setVisible(false);
+			
+			frame.add(invisibleButton);
 			frame.repaint();
 		}
 	}
