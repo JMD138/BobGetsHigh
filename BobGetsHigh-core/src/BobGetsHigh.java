@@ -402,6 +402,11 @@ public class BobGetsHigh
 			//Make buttons
 			updateStoryText(currentEvent.getEventText());
 			makeButtons();
+			invisibleButton = new JButton();
+			invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
+			invisibleButton.setVisible(false);
+			frame.add(invisibleButton);
+			frame.repaint();
 		}
 		else if(mode == "Map"){
 			updateStoryText("");
