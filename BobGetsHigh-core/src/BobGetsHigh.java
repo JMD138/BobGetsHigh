@@ -66,7 +66,7 @@ public class BobGetsHigh
 	{
 		generateGame();
 		makeFrame();
-		setDisplay("Event");
+		setDisplay("Map");
 	}
 	
 	public void makeFrame()
@@ -217,7 +217,19 @@ public class BobGetsHigh
 		invisibleButton.setVisible(false);
 		frame.add(invisibleButton);
 		frame.repaint();
-	}   
+	}
+	
+	public void makeMap(){
+		for(int i = 0; i < locations.size(); i++){
+			JButton locationButton = new JButton(currentEvent.getOptions(0));
+			locationButton.setVerticalTextPosition(AbstractButton.CENTER);
+			locationButton.setHorizontalTextPosition(AbstractButton.LEADING);
+			locationButton.setBounds(button3X,100+(i*50), BUTTON_WIDTH, BUTTON_HEIGHT);
+			locationButton.setText(locations.get(i).getLocationName());
+			frame.add(locationButton);
+			frame.repaint();
+		}
+	}
 
 	
 	
@@ -410,7 +422,10 @@ public class BobGetsHigh
 		}
 		else if(mode == "Map"){
 			updateStoryText("");
-			
+			frame.remove(storyText);
+			makeMap();
+			frame.add(storyText);
+			frame.repaint();
 		}
 		
 	}
