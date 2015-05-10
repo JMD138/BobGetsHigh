@@ -33,6 +33,7 @@ public class BobGetsHigh
 {
     private ArrayList<Event> events;
     private ArrayList<Location> locations;
+    private ArrayList<JButton> locationButtons;
     private int sobrietyLevel = 100;
     private JFrame frame;
     private JLabel sobrietyMeter;
@@ -47,6 +48,7 @@ public class BobGetsHigh
     private static final int BUTTON_HEIGHT = 40; 
     private int buttonY;
     private int button1X;
+    private JButton locationButton;
     private JButton b1;
     private JButton b2;
     private JButton nextButton;
@@ -220,13 +222,19 @@ public class BobGetsHigh
 	}
 	
 	public void makeMap(){
+		locationButtons = new ArrayList<JButton>();
 		for(int i = 0; i < locations.size(); i++){
-			JButton locationButton = new JButton(currentEvent.getOptions(0));
-			locationButton.setVerticalTextPosition(AbstractButton.CENTER);
-			locationButton.setHorizontalTextPosition(AbstractButton.LEADING);
-			locationButton.setBounds(button3X,100+(i*50), BUTTON_WIDTH, BUTTON_HEIGHT);
-			locationButton.setText(locations.get(i).getLocationName());
-			frame.add(locationButton);
+			locationButtons.add(new JButton(locations.get(i).getLocationName()));
+			locationButtons.get(i).setVerticalTextPosition(AbstractButton.CENTER);
+			locationButtons.get(i).setHorizontalTextPosition(AbstractButton.LEADING);
+			locationButtons.get(i).setBounds(button3X,100+(i*50), BUTTON_WIDTH, BUTTON_HEIGHT);
+			locationButtons.get(i).addActionListener(new ActionListener() {          
+			    public void actionPerformed(ActionEvent e) 
+			    {
+			    	setDisplay("Event");
+			    }
+		});
+			frame.add(locationButtons.get(i));
 			frame.repaint();
 		}
 	}
@@ -411,19 +419,26 @@ public class BobGetsHigh
 	{
 		if(mode == "Event")
 		{
-			//Make buttons
-			updateStoryText(currentEvent.getEventText());
+			//Remove Location Buttons
+			for(int i = 0; i < locations.size(); i++){
+				frame.remove(locationButtons.get(i));
+			}
+			//Reset Text bounds
+	        storyText.setBounds(frame.getWidth()/4,frame.getHeight()/8*3,frame.getWidth()/2,frame.getHeight()/4);
+			//Update Text to current event
+	        updateStoryText(currentEvent.getEventText());
+	        //Make the buttons
 			makeButtons();
-			invisibleButton = new JButton();
-			invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
-			invisibleButton.setVisible(false);
-			frame.add(invisibleButton);
 			frame.repaint();
 		}
 		else if(mode == "Map"){
+			//Clear story Text
 			updateStoryText("");
+			//Remove Text
 			frame.remove(storyText);
+			//Add location buttons
 			makeMap();
+			//Add back text
 			frame.add(storyText);
 			frame.repaint();
 		}
