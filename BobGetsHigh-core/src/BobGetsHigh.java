@@ -442,6 +442,7 @@ public class BobGetsHigh
 			frame.repaint();
 		}
 		else if(mode == "Map"){
+			sobrietyMeter.setBounds(20, 15, 200, 30);
 			//Clear story Text
 			updateStoryText("");
 			//Remove Text
