@@ -119,6 +119,16 @@ public class BobGetsHigh
         storyText.setBounds(frame.getWidth()/4,frame.getHeight()/8*3,frame.getWidth()/2,frame.getHeight()/4);
         frame.add(storyText); //Add to the frame
         
+		sobrietyMeter = new JLabel("Sobriety Level: " + sobrietyLevel + "%");
+		sobrietyMeter.setVerticalTextPosition(AbstractButton.CENTER);
+		sobrietyMeter.setHorizontalTextPosition(AbstractButton.LEADING);
+		sobrietyMeter.setFont(new Font("Arial", 1, 18));
+		sobrietyMeter.setBounds(20, 15, 200, 30);
+		sobrietyMeter.setForeground(Color.WHITE);
+		
+		frame.add(sobrietyMeter);
+		frame.repaint();
+        
         //Quit Event
 		Action exit = new AbstractAction()
 		{
@@ -161,16 +171,6 @@ public class BobGetsHigh
 		//Quit on Q
 		storyText.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_Q, 0), "quit");
 		storyText.getActionMap().put("quit", exit);
-		frame.repaint();
-		
-		sobrietyMeter = new JLabel("Sobriety Level: " + sobrietyLevel + "%");
-		sobrietyMeter.setVerticalTextPosition(AbstractButton.CENTER);
-		sobrietyMeter.setHorizontalTextPosition(AbstractButton.LEADING);
-		sobrietyMeter.setFont(new Font("Arial", 1, 18));
-		sobrietyMeter.setBounds(20, 15, 200, 30);
-		sobrietyMeter.setForeground(Color.WHITE);
-		
-		frame.add(sobrietyMeter);
 		frame.repaint();
 		
 		buttonY = (int)(frame.getHeight()/4*3);
