@@ -66,7 +66,6 @@ public class BobGetsHigh
 	{
 		generateGame();
 		makeFrame();
-		makeButtons();
 	}
 	
 	public void makeFrame()
@@ -209,6 +208,7 @@ public class BobGetsHigh
 		    	updateButtons(1);
 		    }
 		});
+
 		
 		//Invisible Button 
 		invisibleButton = new JButton();
@@ -303,16 +303,8 @@ public class BobGetsHigh
 				String [] sobrietyResults = ((String) event.get("sobrietyResults")).split(",");
 			    events.add(new Event(eventText, options, optionResults, sobrietyResults));
 			  }
-		currentEvent = events.get(2);
+		currentEvent = events.get(3);
 	}
-	
-			
-	public void generateMap()
-	{
-		
-	}
-
-	
 	
 	public void updateSobrietyLevel(int num)
 	{
@@ -374,8 +366,7 @@ public class BobGetsHigh
 		}
 		if(n == 2)
 		{
-//			goToMap();
-			makeButtons();
+			setDisplay("Map");
 			frame.remove(nextButton);
 		}
 	}
@@ -395,6 +386,20 @@ public class BobGetsHigh
 	}
 	
 	
+	//Method for setting what is displayed (Event/Map)
+	public void setDisplay(String mode)
+	{
+		if(mode == "Event")
+		{
+			//Make buttons
+			makeButtons();
+			updateStoryText("Test");
+		}
+		else if(mode == "Map"){
+			
+		}
+		
+	}
 	
 	public static boolean isWindows() {
 		 
