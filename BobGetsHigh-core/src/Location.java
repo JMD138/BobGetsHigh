@@ -21,4 +21,8 @@ public class Location
 	{
 		return (this.name + ". Events: " + events.toString() + ".\n");
 	}
+	
+	public ArrayList<Event> getEvents(){
+		return events;
+	}
 }

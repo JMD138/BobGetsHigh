@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Random;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
@@ -224,6 +225,7 @@ public class BobGetsHigh
 	public void makeMap(){
 		locationButtons = new ArrayList<JButton>();
 		for(int i = 0; i < locations.size(); i++){
+			Event selectedEvent =  locations.get(i).getEvents().get(randInt(0,locations.get(i).getEvents().size()-1));
 			locationButtons.add(new JButton(locations.get(i).getLocationName()));
 			locationButtons.get(i).setVerticalTextPosition(AbstractButton.CENTER);
 			locationButtons.get(i).setHorizontalTextPosition(AbstractButton.LEADING);
@@ -231,12 +233,18 @@ public class BobGetsHigh
 			locationButtons.get(i).addActionListener(new ActionListener() {          
 			    public void actionPerformed(ActionEvent e) 
 			    {
+			    	currentEvent = selectedEvent;
 			    	setDisplay("Event");
 			    }
 		});
 			frame.add(locationButtons.get(i));
-			frame.repaint();
 		}
+		invisibleButton = new JButton();
+		invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
+		invisibleButton.setVisible(false);
+		
+		frame.add(invisibleButton);
+		frame.repaint();
 	}
 
 	
@@ -332,10 +340,12 @@ public class BobGetsHigh
 		sobrietyLevel += num;
 		if (gameOver())
 		{
+			sobrietyLevel = 0;
 			sobrietyMeter.setText("Sobriety Level: 0%");
 			gameOver();
 		}
 		else if(sobrietyLevel >= 100){
+			sobrietyLevel = 100;
 			sobrietyMeter.setText("Sobriety Level: 100%");
 		}
 		else
@@ -445,6 +455,7 @@ public class BobGetsHigh
 		
 	}
 	
+	//Thank you: http://www.mkyong.com/java/how-to-detect-os-in-java-systemgetpropertyosname/
 	public static boolean isWindows() {
 		 
 		return (OS.indexOf("win") >= 0);
@@ -467,6 +478,13 @@ public class BobGetsHigh
  
 		return (OS.indexOf("sunos") >= 0);
  
+	}
+	
+	//Thank you: http://stackoverflow.com/questions/363681/generating-random-integers-in-a-range-with-java
+	public static int randInt(int min, int max) {
+	    Random rand = new Random();
+	    int randomNum = rand.nextInt((max - min) + 1) + min;
+	    return randomNum;
 	}
  
 }
