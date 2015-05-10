@@ -167,7 +167,7 @@ public class BobGetsHigh
 		sobrietyMeter.setVerticalTextPosition(AbstractButton.CENTER);
 		sobrietyMeter.setHorizontalTextPosition(AbstractButton.LEADING);
 		sobrietyMeter.setFont(new Font("Arial", 1, 18));
-		sobrietyMeter.setBounds(frame.getWidth() - 200, 0, 200, 30);
+		sobrietyMeter.setBounds(20, 15, 200, 30);
 		sobrietyMeter.setForeground(Color.WHITE);
 		
 		frame.add(sobrietyMeter);
