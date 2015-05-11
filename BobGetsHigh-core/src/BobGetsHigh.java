@@ -111,7 +111,7 @@ public class BobGetsHigh
         //Create a style story text
         storyText = new JTextArea(""); //Set text equal to current event text
         storyText.setForeground(Color.WHITE); //Set text color
-        storyText.setBackground(Color.BLACK);
+        storyText.setBackground(new Color(0, 0, 0, 0));
         storyText.setLineWrap(true);
         storyText.setWrapStyleWord(true);
         storyText.setEditable(false);
@@ -224,12 +224,13 @@ public class BobGetsHigh
 	
 	public void makeMap(){
 		locationButtons = new ArrayList<JButton>();
+		int spacing = frame.getHeight()/2/locations.size();
 		for(int i = 0; i < locations.size(); i++){
 			Event selectedEvent =  locations.get(i).getEvents().get(randInt(0,locations.get(i).getEvents().size()-1));
 			locationButtons.add(new JButton(locations.get(i).getLocationName()));
 			locationButtons.get(i).setVerticalTextPosition(AbstractButton.CENTER);
 			locationButtons.get(i).setHorizontalTextPosition(AbstractButton.LEADING);
-			locationButtons.get(i).setBounds(button3X,100+(i*50), BUTTON_WIDTH, BUTTON_HEIGHT);
+			locationButtons.get(i).setBounds(button3X,frame.getHeight()/4+(spacing*i), BUTTON_WIDTH, BUTTON_HEIGHT);
 			locationButtons.get(i).addActionListener(new ActionListener() {          
 			    public void actionPerformed(ActionEvent e) 
 			    {
