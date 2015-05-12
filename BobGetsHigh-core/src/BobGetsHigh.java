@@ -193,22 +193,36 @@ public class BobGetsHigh
 		  public void actionPerformed(ActionEvent event){
 			  //When timer runs out remove image and add sobriety meter/set map
 			  frame.remove(image_pane);
-				sobrietyMeter = new JLabel("Sobriety Level: " + sobrietyLevel + "%");
-				sobrietyMeter.setVerticalTextPosition(AbstractButton.CENTER);
-				sobrietyMeter.setHorizontalTextPosition(AbstractButton.LEADING);
-				sobrietyMeter.setFont(new Font("Arial", 1, 18));
-				sobrietyMeter.setBounds(20, 15, 200, 30);
-				sobrietyMeter.setForeground(Color.WHITE);
-				
-				frame.add(sobrietyMeter);
+				storyText.setText("You are Bob, a computer science major at College Tech University. Go about your daily life and remember, \"Stay cool, Stay in School\".");
 				frame.repaint();
-			  
-			  setDisplay("Map");
+				
+				ActionListener listener2 = new ActionListener(){
+					  public void actionPerformed(ActionEvent event){
+							storyText.setText("");
+							
+							sobrietyMeter = new JLabel("Sobriety Level: " + sobrietyLevel + "%");
+							sobrietyMeter.setVerticalTextPosition(AbstractButton.CENTER);
+							sobrietyMeter.setHorizontalTextPosition(AbstractButton.LEADING);
+							sobrietyMeter.setFont(new Font("Arial", 1, 18));
+							sobrietyMeter.setBounds(20, 15, 200, 30);
+							sobrietyMeter.setForeground(Color.WHITE);
+							frame.add(sobrietyMeter);
+						  setDisplay("Map"); 
+					  }
+				};
+				
+				//Timer for Intro Text
+				Timer displayTimer2 = new Timer(6000, listener2); //set value timer here
+				displayTimer2.start();
+				displayTimer2.setRepeats(false);
 		  }
 		};
+		
+		//Timer for Splash Screen
 		Timer displayTimer = new Timer(3000, listener); //set value timer here
 		displayTimer.start();
 		displayTimer.setRepeats(false);
+		
 		
 	}
     
