@@ -358,9 +358,9 @@ public class BobGetsHigh
 			    JSONObject event = (JSONObject) o;
 			    
 			    String eventText = (String) event.get("eventText");
-			    String [] options = ((String) event.get("options")).split(",");
-				String [] optionResults = ((String) event.get("optionResults")).split(",");
-				String [] sobrietyResults = ((String) event.get("sobrietyResults")).split(",");
+			    String [] options = ((String) event.get("options")).split("~");
+				String [] optionResults = ((String) event.get("optionResults")).split("~");
+				String [] sobrietyResults = ((String) event.get("sobrietyResults")).split("~");
 			    events.add(new Event(eventText, options, optionResults, sobrietyResults));
 			  }
 		currentEvent = events.get(3);
