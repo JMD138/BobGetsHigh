@@ -193,7 +193,7 @@ public class BobGetsHigh
 		  public void actionPerformed(ActionEvent event){
 			  //When timer runs out remove image and add sobriety meter/set map
 			  frame.remove(image_pane);
-				storyText.setText("You are Bob, a computer science major at College Tech University. Go about your daily life and remember, \"Stay cool, Stay in School\".");
+				storyText.setText("You are Bob, a computer science major at College Tech University. \nGo about your daily life and remember: \n\n\"Stay cool, Stay in School\"");
 				frame.repaint();
 				
 				ActionListener listener2 = new ActionListener(){
@@ -462,8 +462,8 @@ public class BobGetsHigh
 	{
 		if(sobrietyLevel <= 0)
 		{
-			updateStoryText("You got arrested. You must have been REALLY high..."
-						+ " Press 'Q' to exit");
+			updateStoryText("Game Over"+"/n/nYou became addicted to drugs and stopped going to class."
+						+ "\nPress 'Q' to quit");
 			frame.repaint();
 			return true;
 		}
