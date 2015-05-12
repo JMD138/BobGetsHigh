@@ -19,6 +19,7 @@ import java.lang.reflect.Method;
 import java.net.*;
 
 import javax.imageio.*;
+import javax.swing.Timer;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ public class BobGetsHigh
     private JPanel content;
     private JTextArea storyText;
     private BufferedImage image;
+    private JLabel image_pane;
 	private Location currentLocation;
     private Event currentEvent;
     private int button2X;
@@ -69,7 +71,7 @@ public class BobGetsHigh
 	{
 		generateGame();
 		makeFrame();
-		setDisplay("Map");
+		
 	}
 	
 	public void makeFrame()
@@ -119,16 +121,6 @@ public class BobGetsHigh
         storyText.setBounds(frame.getWidth()/4,frame.getHeight()/8*3,frame.getWidth()/2,frame.getHeight()/4);
         frame.add(storyText); //Add to the frame
         
-		sobrietyMeter = new JLabel("Sobriety Level: " + sobrietyLevel + "%");
-		sobrietyMeter.setVerticalTextPosition(AbstractButton.CENTER);
-		sobrietyMeter.setHorizontalTextPosition(AbstractButton.LEADING);
-		sobrietyMeter.setFont(new Font("Arial", 1, 18));
-		sobrietyMeter.setBounds(20, 15, 200, 30);
-		sobrietyMeter.setForeground(Color.WHITE);
-		
-		frame.add(sobrietyMeter);
-		frame.repaint();
-        
         //Quit Event
 		Action exit = new AbstractAction()
 		{
@@ -177,6 +169,44 @@ public class BobGetsHigh
 		button1X = (int)(frame.getWidth()/3-(BUTTON_WIDTH/2));
 		button2X = (int)((frame.getWidth()/3)*2-(BUTTON_WIDTH/2));
 		button3X = (int)((frame.getWidth()/2)-(BUTTON_WIDTH/2));
+		
+		
+		//Code for adding splash screen image
+		image_pane = new JLabel();
+	    frame.add(image_pane);
+        try
+        {
+            image = ImageIO.read(new File("assets/images/groupImage.png"));
+            image_pane.setIcon(new ImageIcon(image));
+        }
+        catch (Exception e)
+        {}       
+		//Center Image
+       image_pane.setHorizontalAlignment((frame.getWidth()-image_pane.getWidth())/2);
+       image_pane.setVerticalAlignment((frame.getHeight()-image_pane.getHeight())/2);
+       frame.repaint();
+		
+       //Timer code for splash screen
+		ActionListener listener = new ActionListener(){
+		  public void actionPerformed(ActionEvent event){
+			  //When timer runs out remove image and add sobriety meter/set map
+			  frame.remove(image_pane);
+				sobrietyMeter = new JLabel("Sobriety Level: " + sobrietyLevel + "%");
+				sobrietyMeter.setVerticalTextPosition(AbstractButton.CENTER);
+				sobrietyMeter.setHorizontalTextPosition(AbstractButton.LEADING);
+				sobrietyMeter.setFont(new Font("Arial", 1, 18));
+				sobrietyMeter.setBounds(20, 15, 200, 30);
+				sobrietyMeter.setForeground(Color.WHITE);
+				
+				frame.add(sobrietyMeter);
+				frame.repaint();
+			  
+			  setDisplay("Map");
+		  }
+		};
+		Timer displayTimer = new Timer(3000, listener); //set value timer here
+		displayTimer.start();
+		displayTimer.setRepeats(false);
 		
 	}
     
