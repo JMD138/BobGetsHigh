@@ -267,7 +267,7 @@ public class BobGetsHigh
 		// TO ADD: switch block to create the events necessary
 		// for the specific locations
 		location0 = new Location("Your Apartment", new ArrayList<Event>(
-						Arrays.asList(events.get(0))));
+						Arrays.asList(events.get(0), events.get(9))));
 		
 		location1 = new Location("The Frat House", new ArrayList<Event>(
 						Arrays.asList(events.get(4))));

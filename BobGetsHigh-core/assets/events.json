@@ -20,7 +20,7 @@
   {
     "eventText": "You have arrived at the gym. You open up an empty locker and a pill bottle falls out. After inspecting the label you discover the contents appear to be steroids. You have been looking pretty small lately, should you take them?",
     "options": "Bulk up the natural way.,Take steroids.",
-    "optionResults": "Nah bro, lets do some cardio.,Dude. Seriously? You had a tiny dick to begin with. You really aren't helping yourself.",
+    "optionResults": "Nah bro. lets do some cardio.,Dude. Seriously? You had a tiny dick to begin with. You really aren't helping yourself.",
     "sobrietyResults": "10,-15"
   },
   {
@@ -52,5 +52,11 @@
     "options": "Nah. Weed smells funny.,JUST BLAZE.",
     "optionResults": "You sit in the dank smell. The only one not stoned.,Yeah man. 4/20",
     "sobrietyResults": "10,-10"
+  },
+  {
+    "eventText": "You've been super stressed out about an upcoming test, and as start walking home from class, you see a group of your friends smoking weed behind a dumpster. As you walk passed them, one of them waves you down. \"Hey man, you look like you need to chill out. Want me to light you up?\"",
+    "options": "Smoke weed and chill out,Figure a way out of this situation",
+    "optionResults": "\"I'm soooooooooo relaxed...\",You didn't know how to respond. You ended up running away while screaming like a school girl.",
+    "sobrietyResults": "-10,10"
   }
 ]
