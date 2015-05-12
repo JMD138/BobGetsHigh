@@ -186,6 +186,8 @@ public class BobGetsHigh
        image_pane.setVerticalAlignment((frame.getHeight()-image_pane.getHeight())/2);
        frame.repaint();
 		
+       
+       //Thank you:http://albertattard.blogspot.com/2008/09/practical-example-of-swing-timer.html
        //Timer code for splash screen
 		ActionListener listener = new ActionListener(){
 		  public void actionPerformed(ActionEvent event){
