@@ -212,7 +212,7 @@ public class BobGetsHigh
 				};
 				
 				//Timer for Intro Text
-				Timer displayTimer2 = new Timer(6000, listener2); //set value timer here
+				Timer displayTimer2 = new Timer(10000, listener2); //set value timer here
 				displayTimer2.start();
 				displayTimer2.setRepeats(false);
 		  }
