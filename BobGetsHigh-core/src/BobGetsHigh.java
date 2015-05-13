@@ -177,10 +177,13 @@ public class BobGetsHigh
         try
         {
             image = ImageIO.read(new File("assets/images/groupImage.png"));
-            image_pane.setIcon(new ImageIcon(image));
+            Image imageScaled = image.getScaledInstance(frame.getWidth(), frame.getWidth()*image.getHeight()/image.getWidth(),Image.SCALE_SMOOTH);
+            image_pane.setIcon(new ImageIcon(imageScaled));
         }
         catch (Exception e)
         {}       
+
+        
 		//Center Image
        image_pane.setHorizontalAlignment((frame.getWidth()-image_pane.getWidth())/2);
        image_pane.setVerticalAlignment((frame.getHeight()-image_pane.getHeight())/2);
@@ -462,7 +465,7 @@ public class BobGetsHigh
 	{
 		if(sobrietyLevel <= 0)
 		{
-			updateStoryText("Game Over"+"/n/nYou became addicted to drugs and stopped going to class."
+			updateStoryText("Game Over"+"\n\nYou became addicted to drugs and stopped going to class."
 						+ "\nPress 'Q' to quit");
 			frame.repaint();
 			return true;
