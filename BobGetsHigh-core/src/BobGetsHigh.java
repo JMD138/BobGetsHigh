@@ -217,14 +217,14 @@ public class BobGetsHigh
 				};
 				
 				//Timer for Intro Text
-				Timer displayTimer2 = new Timer(8000, listener2); //set value timer here
+				Timer displayTimer2 = new Timer(5000, listener2); //set value timer here
 				displayTimer2.start();
 				displayTimer2.setRepeats(false);
 		  }
 		};
 		
 		//Timer for Splash Screen
-		Timer displayTimer = new Timer(3000, listener); //set value timer here
+		Timer displayTimer = new Timer(2500, listener); //set value timer here
 		displayTimer.start();
 		displayTimer.setRepeats(false);
 		
@@ -419,6 +419,7 @@ public class BobGetsHigh
 		{
 			frame.remove(b1);
 			frame.remove(b2);
+			frame.remove(pane);
 			
 			updateStoryText(currentEvent.getOptionResults(n));
 			updateSobrietyLevel(currentEvent.getSobrietyResults(n));
@@ -461,9 +462,8 @@ public class BobGetsHigh
 			frame.add(invisibleButton);
 			frame.repaint();
 		}
-		
-	  	pane = new Pane();
-        frame.add(pane);
+		frame.add(pane);
+		frame.repaint();
 	}
 
 	
@@ -498,7 +498,7 @@ public class BobGetsHigh
 	        //Make the buttons
 			makeButtons();
 			sobrietyMeter.setBounds(20, 15, 200, 30);
-		  	pane = new Pane();
+//		  	pane = new Pane();
 	        frame.add(pane);
 			frame.repaint();
 		}
@@ -510,10 +510,11 @@ public class BobGetsHigh
 			frame.remove(storyText);
 			//Add location buttons
 			makeMap();
+			frame.repaint();
 			//Add back text
 			frame.add(storyText);
 			sobrietyMeter.setBounds(20, 15, 200, 30);
-		  	pane = new Pane();
+		  	//pane = new Pane();
 	        frame.add(pane);
 	        frame.repaint();
 		}
