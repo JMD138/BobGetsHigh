@@ -1,4 +1,4 @@
-
+//Thank you Subtle Patterns for our background image
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -57,6 +57,7 @@ public class BobGetsHigh
     private JButton nextButton;
     private JButton invisibleButton;
     private static String OS = System.getProperty("os.name").toLowerCase();
+    private Pane pane;
     
 //    private JTextArea backgroundPane;
 //    private Color backgroundColor;
@@ -107,13 +108,13 @@ public class BobGetsHigh
         	frame.setUndecorated(true);
         	myDevice.setFullScreenWindow(frame);
         }
-        
         frame.setVisible(true);
         
         //Create a style story text
         storyText = new JTextArea(""); //Set text equal to current event text
-        storyText.setForeground(Color.WHITE); //Set text color
+        storyText.setForeground(Color.BLACK); //Set text color
         storyText.setBackground(new Color(0, 0, 0, 0));
+        storyText.setOpaque(false);
         storyText.setLineWrap(true);
         storyText.setWrapStyleWord(true);
         storyText.setEditable(false);
@@ -197,25 +198,26 @@ public class BobGetsHigh
 			  //When timer runs out remove image and add sobriety meter/set map
 			  frame.remove(image_pane);
 				storyText.setText("You are Bob, a computer science major at College Tech University. \nGo about your daily life and remember: \n\n\"Stay cool, Stay in School\"");
-				frame.repaint();
+			  	pane = new Pane();
+		        frame.add(pane);
+		        frame.repaint();
 				
 				ActionListener listener2 = new ActionListener(){
 					  public void actionPerformed(ActionEvent event){
 							storyText.setText("");
-							
 							sobrietyMeter = new JLabel("Sobriety Level: " + sobrietyLevel + "%");
 							sobrietyMeter.setVerticalTextPosition(AbstractButton.CENTER);
 							sobrietyMeter.setHorizontalTextPosition(AbstractButton.LEADING);
 							sobrietyMeter.setFont(new Font("Arial", 1, 18));
 							sobrietyMeter.setBounds(20, 15, 200, 30);
-							sobrietyMeter.setForeground(Color.WHITE);
+							sobrietyMeter.setForeground(Color.BLACK);
 							frame.add(sobrietyMeter);
 						  setDisplay("Map"); 
 					  }
 				};
 				
 				//Timer for Intro Text
-				Timer displayTimer2 = new Timer(10000, listener2); //set value timer here
+				Timer displayTimer2 = new Timer(8000, listener2); //set value timer here
 				displayTimer2.start();
 				displayTimer2.setRepeats(false);
 		  }
@@ -266,6 +268,7 @@ public class BobGetsHigh
 		//Invisible Button 
 		invisibleButton = new JButton();
 		invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
+		invisibleButton.setOpaque(false);
 		invisibleButton.setVisible(false);
 		frame.add(invisibleButton);
 		frame.repaint();
@@ -410,12 +413,13 @@ public class BobGetsHigh
 	}
 
 	public void updateButtons(int n)
-	{
+	{	
+		frame.remove(pane);
 		if (n <= 1)
 		{
 			frame.remove(b1);
 			frame.remove(b2);
-		
+			
 			updateStoryText(currentEvent.getOptionResults(n));
 			updateSobrietyLevel(currentEvent.getSobrietyResults(n));
 			
@@ -434,7 +438,7 @@ public class BobGetsHigh
 				});
 			
 				frame.add(nextButton);
-				frame.repaint();
+		        frame.repaint();
 			}
 			
 			frame.remove(invisibleButton);
@@ -457,6 +461,9 @@ public class BobGetsHigh
 			frame.add(invisibleButton);
 			frame.repaint();
 		}
+		
+	  	pane = new Pane();
+        frame.add(pane);
 	}
 
 	
@@ -479,6 +486,7 @@ public class BobGetsHigh
 	{
 		if(mode == "Event")
 		{
+			frame.remove(pane);
 			//Remove Location Buttons
 			for(int i = 0; i < locations.size(); i++){
 				frame.remove(locationButtons.get(i));
@@ -490,9 +498,12 @@ public class BobGetsHigh
 	        //Make the buttons
 			makeButtons();
 			sobrietyMeter.setBounds(20, 15, 200, 30);
+		  	pane = new Pane();
+	        frame.add(pane);
 			frame.repaint();
 		}
 		else if(mode == "Map"){
+			frame.remove(pane);
 			//Clear story Text
 			updateStoryText("");
 			//Remove Text
@@ -502,7 +513,9 @@ public class BobGetsHigh
 			//Add back text
 			frame.add(storyText);
 			sobrietyMeter.setBounds(20, 15, 200, 30);
-			frame.repaint();
+		  	pane = new Pane();
+	        frame.add(pane);
+	        frame.repaint();
 		}
 		
 	}
