@@ -495,11 +495,11 @@ public class BobGetsHigh
 	        storyText.setBounds(frame.getWidth()/4,frame.getHeight()/8*3,frame.getWidth()/2,frame.getHeight()/4);
 			//Update Text to current event
 	        updateStoryText(currentEvent.getEventText());
+	        frame.add(pane);
 	        //Make the buttons
 			makeButtons();
 			sobrietyMeter.setBounds(20, 15, 200, 30);
-		  	pane = new Pane();
-	        frame.add(pane);
+	        //frame.add(pane);
 			frame.repaint();
 		}
 		else if(mode == "Map"){
@@ -509,12 +509,12 @@ public class BobGetsHigh
 			//Remove Text
 			frame.remove(storyText);
 			//Add location buttons
+			frame.add(pane);
 			makeMap();
 			//Add back text
 			frame.add(storyText);
 			sobrietyMeter.setBounds(20, 15, 200, 30);
-		  	pane = new Pane();
-	        frame.add(pane);
+	        // frame.add(pane);
 	        frame.repaint();
 		}
 		
