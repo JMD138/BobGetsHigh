@@ -16,8 +16,7 @@ import java.io.File;
     
  //Thank you: http://stackoverflow.com/questions/23403707/how-to-set-repeating-background-image-to-a-jpanel   
     
-    public class Pane extends JPanel 
-    {
+    public class Pane extends JPanel {
 
         private BufferedImage tile;
 
