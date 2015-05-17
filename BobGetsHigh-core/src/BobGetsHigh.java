@@ -112,7 +112,7 @@ public class BobGetsHigh
         
         //Create a style story text
         storyText = new JTextArea(""); //Set text equal to current event text
-        storyText.setForeground(Color.BLACK); //Set text color
+        storyText.setForeground(new Color (43,46,19,255)); //Set text color
         storyText.setBackground(new Color(0, 0, 0, 0));
         storyText.setOpaque(false);
         storyText.setLineWrap(true);
@@ -210,7 +210,7 @@ public class BobGetsHigh
 							sobrietyMeter.setHorizontalTextPosition(AbstractButton.LEADING);
 							sobrietyMeter.setFont(new Font("Arial", 1, 18));
 							sobrietyMeter.setBounds(20, 15, 200, 30);
-							sobrietyMeter.setForeground(Color.BLACK);
+							sobrietyMeter.setForeground(new Color (43,46,19,255));
 							frame.add(sobrietyMeter);
 						  setDisplay("Map"); 
 					  }
@@ -235,6 +235,7 @@ public class BobGetsHigh
 	{
 		
 		b1 = new JButton(currentEvent.getOptions(0));
+		b1.setForeground(new Color (43,46,19,255));
 		b1.setVerticalTextPosition(AbstractButton.CENTER);
 		b1.setHorizontalTextPosition(AbstractButton.LEADING);
 		b1.setBounds(button1X,buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
@@ -243,6 +244,7 @@ public class BobGetsHigh
 		frame.repaint();
 		
 		b2 = new JButton(currentEvent.getOptions(1));
+		b2.setForeground(new Color (43,46,19,255));
 		b2.setVerticalTextPosition(AbstractButton.CENTER);
 		b2.setHorizontalTextPosition(AbstractButton.LEADING);
 		b2.setBounds(button2X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT); //int x, int y, int width, int height
@@ -282,6 +284,7 @@ public class BobGetsHigh
 			locationButtons.add(new JButton(locations.get(i).getLocationName()));
 			locationButtons.get(i).setVerticalTextPosition(AbstractButton.CENTER);
 			locationButtons.get(i).setHorizontalTextPosition(AbstractButton.LEADING);
+			locationButtons.get(i).setForeground(new Color (43,46,19,255));
 			locationButtons.get(i).setBounds(button3X,frame.getHeight()/4+(spacing*i), BUTTON_WIDTH, BUTTON_HEIGHT);
 			locationButtons.get(i).addActionListener(new ActionListener() {          
 			    public void actionPerformed(ActionEvent e) 
@@ -427,6 +430,7 @@ public class BobGetsHigh
 			if(!gameOver())
 			{
 				nextButton = new JButton("Continue");
+				nextButton.setForeground(new Color (43,46,19,255));
 				nextButton.setVerticalTextPosition(AbstractButton.CENTER);
 				nextButton.setHorizontalTextPosition(AbstractButton.LEADING);
 				nextButton.setBounds(button3X, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT);
