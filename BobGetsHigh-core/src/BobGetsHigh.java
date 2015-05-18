@@ -291,24 +291,25 @@ public class BobGetsHigh
 	public void makeMap(){
 		locationButtons = new ArrayList<JButton>();
 		int spacing = frame.getHeight()/2/locations.size();
-			for(int i = 0; i < locations.size(); i++){
-				if(locations.get(i).getEvents().size()>0){
-					Location selectedLocation = locations.get(i);
-					Event selectedEvent =  locations.get(i).getEvents().get(randInt(0,locations.get(i).getEvents().size()-1));
-					locationButtons.add(new JButton(locations.get(i).getLocationName()));
-					locationButtons.get(i).setVerticalTextPosition(AbstractButton.CENTER);
-					locationButtons.get(i).setHorizontalTextPosition(AbstractButton.LEADING);
-					locationButtons.get(i).setForeground(new Color (43,46,19,255));
-					locationButtons.get(i).setBounds(button3X,frame.getHeight()/4+(spacing*i), BUTTON_WIDTH, BUTTON_HEIGHT);
-					locationButtons.get(i).addActionListener(new ActionListener() {          
-					    public void actionPerformed(ActionEvent e) 
-					    {
-					    	currentLocation = selectedLocation;
-					    	currentEvent = selectedEvent;
-					    	setDisplay("Event");
-					    }
+		for(int i = 0; i < locations.size(); i++){
+				System.out.println(locations.get(i).getEvents().size());
+			if(locations.get(i).getEvents().size()>0){
+				Location selectedLocation = locations.get(i);
+				Event selectedEvent =  locations.get(i).getEvents().get(randInt(0,locations.get(i).getEvents().size()-1));
+				locationButtons.add(new JButton(locations.get(i).getLocationName()));
+				locationButtons.get(i).setVerticalTextPosition(AbstractButton.CENTER);
+				locationButtons.get(i).setHorizontalTextPosition(AbstractButton.LEADING);
+				locationButtons.get(i).setForeground(new Color (43,46,19,255));
+				locationButtons.get(i).setBounds(button3X,frame.getHeight()/4+(spacing*i), BUTTON_WIDTH, BUTTON_HEIGHT);
+				locationButtons.get(i).addActionListener(new ActionListener() {          
+					public void actionPerformed(ActionEvent e) 
+				    {
+				    	currentLocation = selectedLocation;
+				    	currentEvent = selectedEvent;
+				    	setDisplay("Event");
+				    }
 				});
-					frame.add(locationButtons.get(i));
+				frame.add(locationButtons.get(i));
 			}
 		}
 		invisibleButton = new JButton();
@@ -341,7 +342,7 @@ public class BobGetsHigh
 						Arrays.asList(events.get(0), events.get(9))));
 		
 		location1 = new Location("The Frat House", new ArrayList<Event>(
-						Arrays.asList(events.get(4), events.get(12))));
+						Arrays.asList(/*events.get(4), events.get(12)*/)));
 		
 		location2 = new Location("Class", new ArrayList<Event>(
 						Arrays.asList(events.get(1), events.get(10))));
