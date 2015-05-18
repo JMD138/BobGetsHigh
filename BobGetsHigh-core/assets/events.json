@@ -58,5 +58,47 @@
     "options": "Smoke weed and chill out~Figure a way out of this situation",
     "optionResults": "\"I'm soooooooooo relaxed...\"~You didn't know how to respond. You ended up running away while screaming like a school girl.",
     "sobrietyResults": "-10~10"
+  },
+  {
+    "eventText": "It's Finals Week. You have test anxiety and you're nervous for your Calculus 2 final. Your friend offers you a xanax to help calm your tits, but you know it causes you to get depressed.",
+    "options": "Take the xanax and be depressed afterward.~ Do not take the xanax, fail the test and get depressed anyways.",
+    "optionResults": "Your tits are calmed, for now.~You failed the test because of your anxiety.",
+    "sobrietyResults": "-10~10"
+  },
+  {
+    "eventText": "It's the end of the quarter and you ran out of declining balance. You are broke and are forced to eat at the cafeteria. The cafeteria is known to have tasteless food so your friend offers to smoke pot with you to gain an appetite. ",
+    "options": "Roll up a joint and get the munchies.~ Bring your travel-sized Tony's Chachere's.",
+    "optionResults": "You got judged for having 5 plates of food spread out in front of you.~ You enjoyed your southern flavored food and went on about your day.",
+    "sobrietyResults": "-10~10"
+  },
+  {
+    "eventText": "Its the weekend and you go to the frat house for a party. You friend offers you lean (a.k.a. purple drank, a.k.a sizzurp). He tells you its a drink that makes you feel extremely drowsy and often euphoric.",
+    "options": "Dont drink the lean, you dont want to look like a dumbass.~Double cup that sizzurp.",
+    "optionResults": "You enjoyed drinking sprite without promethazine and codeine.~ You passed out and woke up drew penises all over your face.",
+    "sobrietyResults": "10~-10"
+  },
+  {
+    "eventText": "The football team just won. You plan on going out to get pizza with your friends, your treat.  As you're exiting the stadium, a dude approaches you with shrooms. He offers you an eighth for 20 bucks.",
+    "options": "Buy the cow-turd shrooms.~ Tell him no but invite him to eat pizza with you and your friends.",
+    "optionResults": "You now have psychedelic shrooms to put on your pizza ~ You made a new friend, a bad friend, but a friend nonetheless.",
+    "sobrietyResults": "-10~10"
+  },
+  {
+    "eventText": "It's free sundae night at the bar (with purchases)! They have unlimited toppings for your disposal. Some girls from your psych class wave you over to their table./n\"Hey Bob! Do you want to try whippets with us?\"",
+    "options": "Ohhh yeahhhh. Sniffing that whipped cream can.~Umm... That's some really intense brain freeze.",
+    "optionResults": "You just sniffed a whipped cream can. You must be stupid.~Eat ice cream by yourself in the corner.",
+    "sobrietyResults": "-10~10"
+  },
+  {
+    "eventText": "You're pre-gaming at your friend's house before you go out to the bar. You're the DD for the night but have been casually sipping on a mixed drink. You and your friends board the car and are on the way. Your friend, Joe, offers you a beer.",
+    "options": "Its just one more drink, why not?~No, you dont want to risk getting pulled over.",
+    "optionResults": "You are past the legal limit and get arrested.~You resume your night being a responsible DD.",
+    "sobrietyResults": "-10~10"
+  },
+  {
+    "eventText": "Your tire blows out and you go to the garage. You leave the garage and realize the sketchy mechanic left a briefcase of cocaine in your car.",
+    "options": "Return the cocaine.~Keep it, try it, sell the rest for extra dough.",
+    "optionResults": "You're a good person for giving the sketchy person his drugs back.~ You're a drug-head and a theif. Congrats.",
+    "sobrietyResults": "10~-15"
   }
 ]
