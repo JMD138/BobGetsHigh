@@ -201,22 +201,34 @@ public class BobGetsHigh
 			  	pane = new Pane();
 		        frame.add(pane);
 		        frame.repaint();
-				
-				ActionListener listener2 = new ActionListener(){
+		        ActionListener listener2 = new ActionListener(){
 					  public void actionPerformed(ActionEvent event){
-							storyText.setText("");
-							sobrietyMeter = new JLabel("Sobriety Level: " + sobrietyLevel + "%");
-							sobrietyMeter.setVerticalTextPosition(AbstractButton.CENTER);
-							sobrietyMeter.setHorizontalTextPosition(AbstractButton.LEADING);
-							sobrietyMeter.setFont(new Font("Arial", 1, 18));
-							sobrietyMeter.setBounds(20, 15, 200, 30);
-							sobrietyMeter.setForeground(new Color (43,46,19,255));
-							frame.add(sobrietyMeter);
-						  setDisplay("Map"); 
+						  
+						  storyText.setText("Bob Gets High");
+					      storyText.setFont(new Font("Arial", Font.BOLD, 50));
+						ActionListener listener2 = new ActionListener(){
+							  public void actionPerformed(ActionEvent event){
+								  storyText.setFont(new Font("Arial", Font.BOLD, 16));
+									storyText.setText("");
+									sobrietyMeter = new JLabel("Sobriety Level: " + sobrietyLevel + "%");
+									sobrietyMeter.setVerticalTextPosition(AbstractButton.CENTER);
+									sobrietyMeter.setHorizontalTextPosition(AbstractButton.LEADING);
+									sobrietyMeter.setFont(new Font("Arial", 1, 18));
+									sobrietyMeter.setBounds(20, 15, 200, 30);
+									sobrietyMeter.setForeground(new Color (43,46,19,255));
+									frame.add(sobrietyMeter);
+								  setDisplay("Map"); 
+							  }
+						};
+						//Timer for Intro Text
+						Timer displayTimer2 = new Timer(2500, listener2); //set value timer here
+						displayTimer2.start();
+						displayTimer2.setRepeats(false);
+						
 					  }
 				};
 				
-				//Timer for Intro Text
+				//Timer for Title Text
 				Timer displayTimer2 = new Timer(5000, listener2); //set value timer here
 				displayTimer2.start();
 				displayTimer2.setRepeats(false);
@@ -224,7 +236,7 @@ public class BobGetsHigh
 		};
 		
 		//Timer for Splash Screen
-		Timer displayTimer = new Timer(2500, listener); //set value timer here
+		Timer displayTimer = new Timer(3000, listener); //set value timer here
 		displayTimer.start();
 		displayTimer.setRepeats(false);
 		
@@ -280,6 +292,7 @@ public class BobGetsHigh
 		locationButtons = new ArrayList<JButton>();
 		int spacing = frame.getHeight()/2/locations.size();
 		for(int i = 0; i < locations.size(); i++){
+			Location selectedLocation = locations.get(i);
 			Event selectedEvent =  locations.get(i).getEvents().get(randInt(0,locations.get(i).getEvents().size()-1));
 			locationButtons.add(new JButton(locations.get(i).getLocationName()));
 			locationButtons.get(i).setVerticalTextPosition(AbstractButton.CENTER);
@@ -289,6 +302,7 @@ public class BobGetsHigh
 			locationButtons.get(i).addActionListener(new ActionListener() {          
 			    public void actionPerformed(ActionEvent e) 
 			    {
+			    	currentLocation = selectedLocation;
 			    	currentEvent = selectedEvent;
 			    	setDisplay("Event");
 			    }
