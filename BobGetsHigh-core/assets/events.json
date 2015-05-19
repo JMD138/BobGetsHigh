@@ -25,7 +25,7 @@
   },
   {
     "eventText": "Your roommate invites you to a frat party. You decide to go. You arrive at the party and everyone is doing Ecstasy. Join in? or drive to Waffle House with the only other sober guy there?",
-    "options": "Well your life is pretty boring. Do Ecstasy! Live a little.~Idk... the reputation of Waffle House food has a lot to be desired...",
+    "options": "Do Ecstasy! Live a little.~Idk,Waffle House food is...",
     "optionResults": "I love all you guys sooooo much!!~I'm going to pretend this is real bacon... Or try too. Who cares. It tastes good.",
     "sobrietyResults": "-15~10"
   },
@@ -72,7 +72,7 @@
     "sobrietyResults": "-10~10"
   },
   {
-    "eventText": "Its the weekend and you go to the frat house for a party. You friend offers you lean (a.k.a. purple drank, a.k.a sizzurp). He tells you its a drink that makes you feel extremely drowsy and often euphoric.",
+    "eventText": "It's the weekend and you go to the frat house for a party. You friend offers you lean (a.k.a. purple drank, a.k.a sizzurp). He tells you it's a drink that makes you feel extremely drowsy and often euphoric.",
     "options": "Dont drink the lean, you dont want to look like a dumbass.~Double cup that sizzurp.",
     "optionResults": "You enjoyed drinking sprite without promethazine and codeine.~ You passed out and woke up drew penises all over your face.",
     "sobrietyResults": "10~-10"
@@ -84,14 +84,14 @@
     "sobrietyResults": "-10~10"
   },
   {
-    "eventText": "It's free sundae night at the bar (with purchases)! They have unlimited toppings for your disposal. Some girls from your psych class wave you over to their table./n\"Hey Bob! Do you want to try whippets with us?\"",
+    "eventText": "It's free sundae night at the bar (with purchases)! They have unlimited toppings for your disposal. Some girls from your psych class wave you over to their table. \n\"Hey Bob! Do you want to try whippets with us?\"",
     "options": "Ohhh yeahhhh. Sniffing that whipped cream can.~Umm... That's some really intense brain freeze.",
     "optionResults": "You just sniffed a whipped cream can. You must be stupid.~Eat ice cream by yourself in the corner.",
     "sobrietyResults": "-10~10"
   },
   {
     "eventText": "You're pre-gaming at your friend's house before you go out to the bar. You're the DD for the night but have been casually sipping on a mixed drink. You and your friends board the car and are on the way. Your friend, Joe, offers you a beer.",
-    "options": "Its just one more drink, why not?~No, you dont want to risk getting pulled over.",
+    "options": "It's just one more drink, why not?~No, you dont want to risk getting pulled over.",
     "optionResults": "You are past the legal limit and get arrested.~You resume your night being a responsible DD.",
     "sobrietyResults": "-10~10"
   },
@@ -100,5 +100,17 @@
     "options": "Return the cocaine.~Keep it, try it, sell the rest for extra dough.",
     "optionResults": "You're a good person for giving the sketchy person his drugs back.~ You're a drug-head and a theif. Congrats.",
     "sobrietyResults": "10~-15"
+  },
+  {
+    "eventText": "You just got your car a new coat of paint. Those fumes...",
+    "options": "Lean in and breathe deep.~Those fumes smell!",
+    "optionResults": "You pass out. Hopefully there is no permanent damage.~You take in a deep breathe of fresh clean air.",
+    "sobrietyResults": "-15~+15"
+  },
+  {
+    "eventText": "You drop a weight on your foot. (Guess your not as in shape as you thought) \nThe doctor patches you up and you feel better. He says: \n\"Hey, you want some pain killers?  I get a nice kickback from my supplier if you do.\"",
+    "options": "No way!~Of course Doc!",
+    "optionResults": "Your foot still hurts but the pain isn't too bad.~The pain killers make the world feel all numb and soft, you go back for more.",
+    "sobrietyResults": "+5~-30"
   }
 ]
