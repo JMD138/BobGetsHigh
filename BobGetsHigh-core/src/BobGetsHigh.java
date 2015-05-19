@@ -293,7 +293,8 @@ public class BobGetsHigh
 	public void makeMap(){
 		locationButtons = new ArrayList<JButton>();
 		int spacing = frame.getHeight()/2/locations.size();
-		for(int i = 0; i < locations.size(); i++){
+		for(int i = 0; i < locations.size(); i++)
+		{
 			Location selectedLocation = locations.get(i);
 			Event selectedEvent =  locations.get(i).getEvents().get(randInt(0,locations.get(i).getEvents().size()-1));
 			locationButtons.add(new JButton(locations.get(i).getLocationName()));
