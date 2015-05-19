@@ -236,7 +236,7 @@ public class BobGetsHigh
 		};
 		
 		//Timer for Splash Screen
-		Timer displayTimer = new Timer(3000, listener); //set value timer here
+		Timer displayTimer = new Timer(5000, listener); //set value timer here
 		displayTimer.start();
 		displayTimer.setRepeats(false);
 		
