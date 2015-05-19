@@ -67,7 +67,7 @@ public class BobGetsHigh
 	
 	public BobGetsHigh()
 	{
-		if(isMac()){System.setProperty("com.apple.mrj.application.apple.menu.about.name", "Bob Gets High");};
+		if(isMac()){System.setProperty("com.apple.mrj.application.apple.menu.about.name", "Bob Gets High?");};
 		generateGame();
 		makeFrame();
 		
@@ -75,11 +75,11 @@ public class BobGetsHigh
 	
 	public void makeFrame()
 	{
-		frame = new JFrame("Bob Gets High");
+		frame = new JFrame("Bob Gets High?");
 		GraphicsEnvironment ge = GraphicsEnvironment
                 .getLocalGraphicsEnvironment();
         GraphicsDevice myDevice = ge.getDefaultScreenDevice();
-		frame.setTitle("Bob Gets High");
+		frame.setTitle("Bob Gets High?");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         content = (JPanel)frame.getContentPane();
         JLabel emptyLabel = new JLabel("");
@@ -204,7 +204,7 @@ public class BobGetsHigh
 		        ActionListener listener2 = new ActionListener(){
 					  public void actionPerformed(ActionEvent event){
 						  
-						  storyText.setText("Bob Gets High");
+						  storyText.setText("Bob Gets High?");
 					      storyText.setFont(new Font("Arial", Font.BOLD, 50));
 						ActionListener listener2 = new ActionListener(){
 							  public void actionPerformed(ActionEvent event){
