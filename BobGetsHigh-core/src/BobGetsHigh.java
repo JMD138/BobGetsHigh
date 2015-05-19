@@ -342,7 +342,7 @@ public class BobGetsHigh
 						Arrays.asList(events.get(0), events.get(9))));
 		
 		location1 = new Location("The Frat House", new ArrayList<Event>(
-						Arrays.asList(/*events.get(4), events.get(12)*/)));
+						Arrays.asList(events.get(4), events.get(12))));
 		
 		location2 = new Location("Class", new ArrayList<Event>(
 						Arrays.asList(events.get(1), events.get(10))));
@@ -351,7 +351,7 @@ public class BobGetsHigh
 						Arrays.asList(events.get(2), events.get(11))));
 		
 		location4 = new Location("The Gym", new ArrayList<Event>(
-						Arrays.asList(events.get(3))));
+						Arrays.asList(events.get(3),events.get(18))));
 		
 		location5 = new Location("The Stadium", new ArrayList<Event>(
 						Arrays.asList(events.get(5), events.get(13))));
@@ -363,7 +363,7 @@ public class BobGetsHigh
 						Arrays.asList(events.get(7), events.get(14))));
 		
 		location8 = new Location("The Car", new ArrayList<Event>(
-						Arrays.asList(events.get(8))));
+						Arrays.asList(events.get(8),events.get(17))));
 		
 		locations = new ArrayList<Location>
 		(
