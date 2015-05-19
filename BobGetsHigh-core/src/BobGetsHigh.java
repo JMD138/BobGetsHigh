@@ -293,7 +293,6 @@ public class BobGetsHigh
 		int spacing = frame.getHeight()/2/locations.size();
 		for(int i = 0; i < locations.size(); i++){
 				System.out.println(locations.get(i).getEvents().size());
-			if(locations.get(i).getEvents().size()>0){
 				Location selectedLocation = locations.get(i);
 				Event selectedEvent =  locations.get(i).getEvents().get(randInt(0,locations.get(i).getEvents().size()-1));
 				locationButtons.add(new JButton(locations.get(i).getLocationName()));
@@ -307,10 +306,10 @@ public class BobGetsHigh
 				    	currentLocation = selectedLocation;
 				    	currentEvent = selectedEvent;
 				    	setDisplay("Event");
+				    	System.out.println(currentLocation);
 				    }
 				});
 				frame.add(locationButtons.get(i));
-			}
 		}
 		invisibleButton = new JButton();
 		invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
@@ -342,7 +341,7 @@ public class BobGetsHigh
 						Arrays.asList(events.get(0), events.get(9))));
 		
 		location1 = new Location("The Frat House", new ArrayList<Event>(
-						Arrays.asList(/*events.get(4), events.get(12)*/)));
+						Arrays.asList(events.get(4), events.get(12))));
 		
 		location2 = new Location("Class", new ArrayList<Event>(
 						Arrays.asList(events.get(1), events.get(10))));
@@ -405,7 +404,6 @@ public class BobGetsHigh
 				String [] sobrietyResults = ((String) event.get("sobrietyResults")).split("~");
 			    events.add(new Event(eventText, options, optionResults, sobrietyResults));
 			  }
-		currentEvent = events.get(3);
 	}
 	
 	public void updateSobrietyLevel(int num)
