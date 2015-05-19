@@ -294,9 +294,9 @@ public class BobGetsHigh
 		locationButtons = new ArrayList<JButton>();
 		int spacing = frame.getHeight()/2/locations.size();
 		for(int i = 0; i < locations.size(); i++){
-				System.out.println(locations.get(i).getEvents().size());
-			if(locations.get(i).getEvents().size()>0){
-				Location selectedLocation = locations.get(i);
+				//System.out.println(locations.get(i).getEvents().size());
+		//	if(locations.get(i).getEvents().size()>0){
+				//Location selectedLocation = locations.get(i);
 				Event selectedEvent =  locations.get(i).getEvents().get(randInt(0,locations.get(i).getEvents().size()-1));
 				locationButtons.add(new JButton(locations.get(i).getLocationName()));
 				locationButtons.get(i).setVerticalTextPosition(AbstractButton.CENTER);
@@ -306,13 +306,13 @@ public class BobGetsHigh
 				locationButtons.get(i).addActionListener(new ActionListener() {          
 					public void actionPerformed(ActionEvent e) 
 				    {
-				    	currentLocation = selectedLocation;
+				    	//currentLocation = selectedLocation;
 				    	currentEvent = selectedEvent;
 				    	setDisplay("Event");
 				    }
 				});
 				frame.add(locationButtons.get(i));
-			}
+			//}
 		}
 		invisibleButton = new JButton();
 		invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
