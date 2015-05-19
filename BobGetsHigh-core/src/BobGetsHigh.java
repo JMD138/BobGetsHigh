@@ -1,4 +1,5 @@
 //Thank you Subtle Patterns for our background image
+//Thank you Kevin MacLeod for your royalty free music
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -33,6 +34,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import jaco.mp3.player.MP3Player;
+
 
 public class BobGetsHigh
 {
@@ -61,6 +64,7 @@ public class BobGetsHigh
     private JButton invisibleButton;
     private static String OS = System.getProperty("os.name").toLowerCase();
     private Pane pane;
+    private MP3Player backgroundMusic;
     
 //    private JTextArea backgroundPane;
 //    private Color backgroundColor;
@@ -102,6 +106,10 @@ public class BobGetsHigh
         frame.setAlwaysOnTop(true);
         frame.setUndecorated(false);
         frame.setVisible(false); //Make visible
+
+        backgroundMusic = new MP3Player(new File("assets/sounds/elevatorMusic.mp3"));
+        backgroundMusic.setRepeat(true);
+        backgroundMusic.play();
         
         
         if(myDevice.isFullScreenSupported())
