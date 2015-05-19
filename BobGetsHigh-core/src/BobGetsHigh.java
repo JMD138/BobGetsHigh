@@ -59,9 +59,6 @@ public class BobGetsHigh
     private Pane pane;
     private MP3Player backgroundMusic;
     
-//    private JTextArea backgroundPane;
-//    private Color backgroundColor;
-    
 	public static void main(String[] args)
 	{
 		BobGetsHigh game = new BobGetsHigh();
@@ -70,6 +67,7 @@ public class BobGetsHigh
 	
 	public BobGetsHigh()
 	{
+		if(isMac()){System.setProperty("com.apple.mrj.application.apple.menu.about.name", "Bob Gets High");};
 		generateGame();
 		makeFrame();
 		
@@ -77,7 +75,6 @@ public class BobGetsHigh
 	
 	public void makeFrame()
 	{
-		
 		frame = new JFrame("Bob Gets High");
 		GraphicsEnvironment ge = GraphicsEnvironment
                 .getLocalGraphicsEnvironment();
