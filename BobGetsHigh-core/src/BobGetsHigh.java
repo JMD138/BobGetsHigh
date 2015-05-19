@@ -25,6 +25,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
 
+import java.applet.*;
+
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -99,7 +102,6 @@ public class BobGetsHigh
         frame.setAlwaysOnTop(true);
         frame.setUndecorated(false);
         frame.setVisible(false); //Make visible
-
         
         
         if(myDevice.isFullScreenSupported())
