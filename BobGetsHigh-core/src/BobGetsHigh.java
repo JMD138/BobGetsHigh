@@ -294,6 +294,7 @@ public class BobGetsHigh
 		locationButtons = new ArrayList<JButton>();
 		int spacing = frame.getHeight()/2/locations.size();
 		for(int i = 0; i < locations.size(); i++){
+<<<<<<< HEAD
 				//System.out.println(locations.get(i).getEvents().size());
 		//	if(locations.get(i).getEvents().size()>0){
 				//Location selectedLocation = locations.get(i);
@@ -313,6 +314,24 @@ public class BobGetsHigh
 				});
 				frame.add(locationButtons.get(i));
 			//}
+=======
+			Location selectedLocation = locations.get(i);
+			Event selectedEvent =  locations.get(i).getEvents().get(randInt(0,locations.get(i).getEvents().size()-1));
+			locationButtons.add(new JButton(locations.get(i).getLocationName()));
+			locationButtons.get(i).setVerticalTextPosition(AbstractButton.CENTER);
+			locationButtons.get(i).setHorizontalTextPosition(AbstractButton.LEADING);
+			locationButtons.get(i).setForeground(new Color (43,46,19,255));
+			locationButtons.get(i).setBounds(button3X,frame.getHeight()/4+(spacing*i), BUTTON_WIDTH, BUTTON_HEIGHT);
+			locationButtons.get(i).addActionListener(new ActionListener() {          
+				public void actionPerformed(ActionEvent e) 
+			    {
+			    	currentLocation = selectedLocation;
+			    	currentEvent = selectedEvent;
+			    	setDisplay("Event");
+			    }
+			});
+			frame.add(locationButtons.get(i));
+>>>>>>> origin/master
 		}
 		invisibleButton = new JButton();
 		invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
