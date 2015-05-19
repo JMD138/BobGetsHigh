@@ -1,13 +1,12 @@
 //Thank you Subtle Patterns for our background image
+//Thank you Kevin MacLeod for your royalty free music
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.Random;
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.image.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,20 +14,20 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.*;
 
-import java.lang.reflect.Method;
-import java.net.*;
 
 import javax.imageio.*;
 import javax.swing.Timer;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Map;
+
+
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import jaco.mp3.player.MP3Player;
 
 
 public class BobGetsHigh
@@ -58,9 +57,7 @@ public class BobGetsHigh
     private JButton invisibleButton;
     private static String OS = System.getProperty("os.name").toLowerCase();
     private Pane pane;
-    
-//    private JTextArea backgroundPane;
-//    private Color backgroundColor;
+    private MP3Player backgroundMusic;
     
 	public static void main(String[] args)
 	{
@@ -70,6 +67,7 @@ public class BobGetsHigh
 	
 	public BobGetsHigh()
 	{
+		if(isMac()){System.setProperty("com.apple.mrj.application.apple.menu.about.name", "Bob Gets High");};
 		generateGame();
 		makeFrame();
 		
@@ -77,7 +75,6 @@ public class BobGetsHigh
 	
 	public void makeFrame()
 	{
-		
 		frame = new JFrame("Bob Gets High");
 		GraphicsEnvironment ge = GraphicsEnvironment
                 .getLocalGraphicsEnvironment();
@@ -100,6 +97,9 @@ public class BobGetsHigh
         frame.setUndecorated(false);
         frame.setVisible(false); //Make visible
 
+        backgroundMusic = new MP3Player(new File("assets/sounds/elevatorMusic.mp3"));
+        backgroundMusic.setRepeat(true);
+        backgroundMusic.play();
         
         
         if(myDevice.isFullScreenSupported())
@@ -291,26 +291,24 @@ public class BobGetsHigh
 	public void makeMap(){
 		locationButtons = new ArrayList<JButton>();
 		int spacing = frame.getHeight()/2/locations.size();
-		for(int i = 0; i < locations.size(); i++){
-				System.out.println(locations.get(i).getEvents().size());
-			if(locations.get(i).getEvents().size()>0){
-				Location selectedLocation = locations.get(i);
-				Event selectedEvent =  locations.get(i).getEvents().get(randInt(0,locations.get(i).getEvents().size()-1));
-				locationButtons.add(new JButton(locations.get(i).getLocationName()));
-				locationButtons.get(i).setVerticalTextPosition(AbstractButton.CENTER);
-				locationButtons.get(i).setHorizontalTextPosition(AbstractButton.LEADING);
-				locationButtons.get(i).setForeground(new Color (43,46,19,255));
-				locationButtons.get(i).setBounds(button3X,frame.getHeight()/4+(spacing*i), BUTTON_WIDTH, BUTTON_HEIGHT);
-				locationButtons.get(i).addActionListener(new ActionListener() {          
-					public void actionPerformed(ActionEvent e) 
-				    {
-				    	currentLocation = selectedLocation;
-				    	currentEvent = selectedEvent;
-				    	setDisplay("Event");
-				    }
-				});
-				frame.add(locationButtons.get(i));
-			}
+		for(int i = 0; i < locations.size(); i++)
+		{
+			Location selectedLocation = locations.get(i);
+			Event selectedEvent =  locations.get(i).getEvents().get(randInt(0,locations.get(i).getEvents().size()-1));
+			locationButtons.add(new JButton(locations.get(i).getLocationName()));
+			locationButtons.get(i).setVerticalTextPosition(AbstractButton.CENTER);
+			locationButtons.get(i).setHorizontalTextPosition(AbstractButton.LEADING);
+			locationButtons.get(i).setForeground(new Color (43,46,19,255));
+			locationButtons.get(i).setBounds(button3X,frame.getHeight()/4+(spacing*i), BUTTON_WIDTH, BUTTON_HEIGHT);
+			locationButtons.get(i).addActionListener(new ActionListener() {          
+				public void actionPerformed(ActionEvent e) 
+			    {
+			    	currentLocation = selectedLocation;
+			    	currentEvent = selectedEvent;
+			    	setDisplay("Event");
+			    }
+			});
+			frame.add(locationButtons.get(i));
 		}
 		invisibleButton = new JButton();
 		invisibleButton.setBounds(0, 0, 0, 0); //int x, int y, int width, int height
@@ -342,7 +340,7 @@ public class BobGetsHigh
 						Arrays.asList(events.get(0), events.get(9))));
 		
 		location1 = new Location("The Frat House", new ArrayList<Event>(
-						Arrays.asList(/*events.get(4), events.get(12)*/)));
+						Arrays.asList(events.get(4), events.get(12))));
 		
 		location2 = new Location("Class", new ArrayList<Event>(
 						Arrays.asList(events.get(1), events.get(10))));
@@ -351,7 +349,7 @@ public class BobGetsHigh
 						Arrays.asList(events.get(2), events.get(11))));
 		
 		location4 = new Location("The Gym", new ArrayList<Event>(
-						Arrays.asList(events.get(3))));
+						Arrays.asList(events.get(3),events.get(18))));
 		
 		location5 = new Location("The Stadium", new ArrayList<Event>(
 						Arrays.asList(events.get(5), events.get(13))));
@@ -363,7 +361,7 @@ public class BobGetsHigh
 						Arrays.asList(events.get(7), events.get(14))));
 		
 		location8 = new Location("The Car", new ArrayList<Event>(
-						Arrays.asList(events.get(8))));
+						Arrays.asList(events.get(8),events.get(17))));
 		
 		locations = new ArrayList<Location>
 		(
