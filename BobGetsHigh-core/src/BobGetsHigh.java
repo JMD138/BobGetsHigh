@@ -355,13 +355,13 @@ public class BobGetsHigh
 						Arrays.asList(events.get(5), events.get(13))));
 		
 		location6 = new Location("The Garage", new ArrayList<Event>(
-						Arrays.asList(events.get(6), events.get(15))));
+						Arrays.asList(events.get(6), events.get(16), events.get(17))));
 		
 		location7 = new Location("The Bar", new ArrayList<Event>(
 						Arrays.asList(events.get(7), events.get(14))));
 		
 		location8 = new Location("The Car", new ArrayList<Event>(
-						Arrays.asList(events.get(8),events.get(17))));
+						Arrays.asList(events.get(8),events.get(15))));
 		
 		locations = new ArrayList<Location>
 		(
