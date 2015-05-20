@@ -7,25 +7,25 @@
   },
   {
     "eventText": "Oh shit. You walk into the classroom. Everyone is sitting furiously reading notes and pulling out scantrons. You forgot there was a test. Your friend Alex sees the panic in your eyes and motions you over. \"Dude, I've got some adderall. Take one of these and you are guaranteed to pass.\"",
-    "options": "Take adderall.~Don't take the adderall. You are messed up enough.",
+    "options": "Take Adderall.~Don't take the Adderall. You are messed up enough.",
     "optionResults": "You finish the test. With a B. Go you!~You get a passable C-. Just don't tell mom.",
     "sobrietyResults": "-10~5"
   },
   {
-    "eventText": "You get to the Cafeteria. All they have is a suspicous concoction of something clearly mislabeled as 'meatloaf'.  The last time you went home, your mom gave you some vitamin supplements because \"you look like you've lost weight.\" Take vitamin supplement or risk the vegetables and 'meatloaf.'",
-    "options": "Eat rather unsatisfying vegetables and 'meatloaf'~Take the vitamin supplement.",
-    "optionResults": "Well it didn't taste too bad I guess...~Umm... That wasn't a vitamin supplement. Mom accidently gave you her valium.",
+    "eventText": "You get to the Cafeteria. All they have is a suspicious concoction of something clearly mislabeled as 'meatloaf'.  The last time you went home, your mom gave you some vitamin supplements because \"you look like you've lost weight.\" Take vitamin supplement or risk the vegetables and 'meatloaf.'",
+    "options": "Eat rather unsatisfying vegetables and 'meatloaf'.~Take the vitamin supplement.",
+    "optionResults": "Well it didn't taste too bad I guess...~Umm... That wasn't a vitamin supplement. Mom accidently gave you her Valium.",
     "sobrietyResults": "10~-15"
   },
   {
     "eventText": "You have arrived at the gym. You open up an empty locker and a pill bottle falls out. After inspecting the label you discover the contents appear to be steroids. You have been looking pretty small lately, should you take them?",
     "options": "Bulk up the natural way.~Take steroids.",
-    "optionResults": "Nah bro. lets do some cardio.~Dude. Seriously? You had a tiny dick to begin with. You really aren't helping yourself.",
+    "optionResults": "Nah bro. Lets do some cardio.~Dude. Seriously? You had a tiny dick to begin with. You really aren't helping yourself.",
     "sobrietyResults": "10~-15"
   },
   {
-    "eventText": "Your roommate invites you to a frat party. You decide to go. You arrive at the party and everyone is doing Ecstasy. Join in? or drive to Waffle House with the only other sober guy there?",
-    "options": "Do Ecstasy! Live a little.~Idk,Waffle House food is...",
+    "eventText": "Your roommate invites you to a frat party. You decide to go. You arrive at the party and everyone is doing Ecstasy. Join in? Or drive to Waffle House with the only other sober guy there?",
+    "options": "Do Ecstasy! Live a little.~Who needs Ecstasty? Waffle House!",
     "optionResults": "I love all you guys sooooo much!!~I'm going to pretend this is real bacon... Or try too. Who cares. It tastes good.",
     "sobrietyResults": "-15~10"
   },
@@ -43,8 +43,8 @@
   },
   {
     "eventText": "Some friends from CSC are going to the bar to celebrate the completion of the video game project. An older guy at the bar offers to buy you a round. Do you accept?",
-    "options": "Nah. Dude looks sketch~Bottoms up!",
-    "optionResults": "Dance the night away with your drunken friends~You got roofied!",
+    "options": "Nah. Dude looks sketch.~Bottoms up!",
+    "optionResults": "Dance the night away with your drunken friends.~You got roofied!",
     "sobrietyResults": "10~-10"
   },
   {
@@ -55,50 +55,50 @@
   },
   {
     "eventText": "You've been super stressed out about an upcoming test. When you get back to the apartment, you see a group of your friends smoking weed behind a dumpster. As you walk passed them, one of them waves you down. \"Hey man, you look like you need to chill out. Want me to light you up?\"",
-    "options": "Smoke weed and chill out~Figure a way out of this situation",
+    "options": "Smoke weed and chill out.~Figure a way out of this situation.",
     "optionResults": "\"I'm soooooooooo relaxed...\"~You didn't know how to respond. You ended up running away while screaming like a school girl.",
     "sobrietyResults": "-10~10"
   },
   {
-    "eventText": "It's Finals Week. You have test anxiety and you're nervous for your Calculus 2 final. Your friend offers you a xanax to help calm your tits, but you know it causes you to get depressed.",
-    "options": "Take the xanax and be depressed afterward.~ Do not take the xanax, fail the test and get depressed anyways.",
+    "eventText": "It's Finals Week. You have test anxiety and you're nervous for your Calculus 2 final. Your friend offers you a Xanax to help calm your tits, but you know it causes you to get depressed.",
+    "options": "Take the Xanax and be depressed afterward.~ Try your best without it.",
     "optionResults": "Your tits are calmed, for now.~You failed the test because of your anxiety.",
     "sobrietyResults": "-10~10"
   },
   {
     "eventText": "It's the end of the quarter and you ran out of declining balance. You are broke and are forced to eat at the cafeteria. The cafeteria is known to have tasteless food so your friend offers to smoke pot with you to gain an appetite. ",
-    "options": "Roll up a joint and get the munchies.~ Bring your travel-sized Tony's Chachere's.",
+    "options": "Roll up a joint and get the munchies.~ Bring your travel-sized Tony Chachere's seasoning.",
     "optionResults": "You got judged for having 5 plates of food spread out in front of you.~ You enjoyed your southern flavored food and went on about your day.",
     "sobrietyResults": "-10~10"
   },
   {
     "eventText": "It's the weekend and you go to the frat house for a party. You friend offers you lean (a.k.a. purple drank, a.k.a sizzurp). He tells you it's a drink that makes you feel extremely drowsy and often euphoric.",
-    "options": "Dont drink the lean, you dont want to look like a dumbass.~Double cup that sizzurp.",
-    "optionResults": "You enjoyed drinking sprite without promethazine and codeine.~ You passed out and woke up drew penises all over your face.",
+    "options": "Dont drink the lean.~Double cup that sizzurp.",
+    "optionResults": "You enjoyed drinking sprite without Promethazine and Codeine.~ You passed out and woke up with drawn penises all over your face.",
     "sobrietyResults": "10~-10"
   },
   {
     "eventText": "The football team just won. You plan on going out to get pizza with your friends, your treat.  As you're exiting the stadium, a dude approaches you with shrooms. He offers you an eighth for 20 bucks.",
-    "options": "Buy the cow-turd shrooms.~ Tell him no but invite him to eat pizza with you and your friends.",
-    "optionResults": "You now have psychedelic shrooms to put on your pizza ~ You made a new friend, a bad friend, but a friend nonetheless.",
+    "options": "Buy the shrooms. ~ Hell no! That comes from cow-turds!",
+    "optionResults": "You now have psychedelic shrooms to put on your pizza ~ You eat regular mushrooms on your pizza.",
     "sobrietyResults": "-10~10"
   },
   {
-    "eventText": "It's free sundae night at the bar (with purchases)! They have unlimited toppings for your disposal. Some girls from your psych class wave you over to their table. \n\"Hey Bob! Do you want to try whippets with us?\"",
+    "eventText": "It's free sundae night at the bar (with purchases)! They have unlimited toppings for your disposal. Some girls from your Psychology class wave you over to their table. \n\"Hey Bob! Do you want to try whippets with us?\"",
     "options": "Ohhh yeahhhh. Sniffing that whipped cream can.~Umm... That's some really intense brain freeze.",
     "optionResults": "You just sniffed a whipped cream can. You must be stupid.~Eat ice cream by yourself in the corner.",
     "sobrietyResults": "-10~10"
   },
   {
     "eventText": "You're pre-gaming at your friend's house before you go out to the bar. You're the DD for the night but have been casually sipping on a mixed drink. You and your friends board the car and are on the way. Your friend, Joe, offers you a beer.",
-    "options": "It's just one more drink, why not?~No, you dont want to risk getting pulled over.",
+    "options": "It's just one more drink, why not?~No, you don't want to risk getting pulled over.",
     "optionResults": "You are past the legal limit and get arrested.~You resume your night being a responsible DD.",
     "sobrietyResults": "-10~10"
   },
   {
     "eventText": "Your tire blows out and you go to the garage. You leave the garage and realize the sketchy mechanic left a briefcase of cocaine in your car.",
     "options": "Return the cocaine.~Keep it, try it, sell the rest for extra dough.",
-    "optionResults": "You're a good person for giving the sketchy person his drugs back.~ You're a drug-head and a theif. Congrats.",
+    "optionResults": "You're a good person for giving the sketchy person his drugs back.~ You're a drug-head and a thief. Congrats.",
     "sobrietyResults": "10~-15"
   },
   {
